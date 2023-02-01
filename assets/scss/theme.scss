@@ -76,4 +76,7 @@
 //
 // -----------------------------------------------------------------------------
 
-@import "layouts/layouts"; // 1
+@import "layouts/layouts";
+@import "../scss/custom/header.scss";
+@import "../scss/custom/navPages.scss";
+@import "../scss/custom/navUser.scss";

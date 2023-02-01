@@ -58,36 +58,14 @@
             </li>
         {{/if}}
         <li class="navUser-item navUser-item--account">
-            {{#if customer}}
-                <a class="navUser-action"
-                   href="{{urls.account.index}}"
-                   aria-label="{{lang 'common.account'}}"
-                >
-                    {{lang 'common.account'}}
-                </a>
-                <a class="navUser-action"
-                   href="{{urls.auth.logout}}"
-                   aria-label="{{lang 'common.logout'}}"
-                >
-                    {{lang 'common.logout'}}
-                </a>
-            {{else}}
-                <a class="navUser-action"
-                   href="{{urls.auth.login}}"
-                   aria-label="{{lang 'common.login'}}"
-                >
-                    {{lang 'common.login'}}
-                </a>
-                {{#if settings.account_creation_enabled}}
-                    <span class="navUser-or">{{lang 'common.or'}}</span>
-                    <a class="navUser-action"
-                       href="{{urls.auth.create_account}}"
-                       aria-label="{{lang 'common.sign_up'}}"
-                    >
-                        {{lang 'common.sign_up'}}
-                    </a>
-                {{/if}}
-            {{/if}}
+            <a class="navUser-action"
+                href="{{urls.account.index}}"
+                aria-label="{{lang 'common.account'}}"
+            >
+                <i class="icon">
+                    <svg><use xlink:href="#icon-account" /></svg>
+                </i>
+            </a>
         </li>
         <li class="navUser-item navUser-item--cart">
             <a class="navUser-action"
@@ -97,7 +75,11 @@
                href="{{urls.cart}}"
                aria-label="{{lang 'cart.nav_aria_label'}}"
             >
-                <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+                <span class="navUser-item-cartLabel">
+                    <i class="icon">
+                        <svg><use xlink:href="#icon-shoppingCart" /></svg>
+                    </i>
+                </span>
                 <span class="countPill cart-quantity"></span>
             </a>
 
