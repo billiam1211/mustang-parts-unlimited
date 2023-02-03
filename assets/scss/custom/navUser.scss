@@ -74,6 +74,7 @@ nav.navUser {
                 button.navUser-action#quick-search-expand {
 
                     &::before {
+                        display: none;
                         border: inset 14px;
                         border-color: transparent transparent #000 transparent;
                         top: 100%;
@@ -271,6 +272,10 @@ nav.navUser {
         &.is-open {
             display: block;
             animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+            @include breakpoint('medium') {
+                display: flex;
+            }
 
             @keyframes slide-in-top {
                 0% {

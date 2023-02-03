@@ -139,6 +139,10 @@ nav.navPages {
                             li.navPage-subMenu-item {
                                 padding: 0;
 
+                                @include breakpoint('medium') {
+                                    margin-bottom: 1.5rem;
+                                }
+
                                 &.view-all {
                                     display: none;
                                 }
@@ -151,7 +155,14 @@ nav.navPages {
                                         display: flex;
                                         justify-content: flex-start;
                                         font-size: remCalc(20px);
-                                        padding: 0;
+                                        padding: 0 1rem;
+                                        border-bottom: 1px dashed stencilColor('color-blue');
+                                    }
+
+                                    &::before {
+                                        @include breakpoint('medium') {
+                                            display: none;
+                                        }
                                     }
 
                                     span.collapsible-icon-wrapper {
@@ -182,11 +193,32 @@ nav.navPages {
                                             }
 
                                             li.navPage-childList-item {
+                                                text-align: left;
+
                                                 a.navPage-childList-action {
                                                     padding: .5rem 3rem;
 
                                                     @include breakpoint('medium') {
+                                                        text-align: left;
+                                                        display: flex;
+                                                        justify-content: flex-start;
                                                         color: stencilColor('color-blue');
+                                                        padding: 5px 1rem;
+                                                    }
+
+                                                    &:hover,
+                                                    &:focus {
+
+                                                        @include breakpoint('medium') {
+                                                            background-color: stencilColor('color-blue');
+                                                            color: stencilColor('color-white');
+                                                        }
+                                                    }
+
+                                                    &::before {
+                                                        @include breakpoint('medium') {
+                                                            display: none;
+                                                        }
                                                     }
                                                 }
                                             }

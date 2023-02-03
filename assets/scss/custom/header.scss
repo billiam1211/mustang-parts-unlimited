@@ -116,9 +116,9 @@ header.header {
 
                 div.header-logo-image-container {
                     min-height: initial;
+                    height: 100%;
 
                     @include breakpoint('medium') {
-                        height: 100%;
                         width: 100%;
                     }
 
@@ -130,8 +130,8 @@ header.header {
                         transition: all .3s ease-in-out;
                         padding: 1.5rem;
 
-                        @include breakpoint('small') {
-                            padding: 2.5rem;
+                        @media only screen and (min-width: 801px) {
+                            padding: .5rem;
                         }
 
                         @include breakpoint('medium') {
