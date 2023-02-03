@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import utils from '@bigcommerce/stencil-utils';
 import StencilDropDown from './stencil-dropdown';
+import { css } from 'jquery';
 
 export default function () {
     const TOP_STYLING = 'top: 49px;';
@@ -39,7 +40,16 @@ export default function () {
                 return false;
             }
 
+
+
             $quickSearchResults.html(response);
+            
+            if (response.includes('0 product results')) {
+                $quickSearchResults.removeClass('has-results');
+            } else {
+                $quickSearchResults.addClass('has-results');
+            }
+
             const $quickSearchResultsCurrent = $quickSearchResults.filter(':visible');
 
             const $noResultsMessage = $quickSearchResultsCurrent.find('.quickSearchMessage');
