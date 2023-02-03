@@ -6,6 +6,11 @@ nav.navUser {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-right: 1rem;
+
+    @include breakpoint('small') {
+        padding-right: 0;
+    }
 
     @include breakpoint('medium') {
         width: auto;
@@ -16,10 +21,10 @@ nav.navUser {
         left: initial;
         right: initial;
         display: flex;
-        justify-content: center;
-        order: 10;
-        flex-grow: 1;
         flex-direction: row;
+        justify-content: flex-end;
+        flex-grow: 1;
+        order: 10;
     }
 
     ul.navUser-section {
@@ -34,7 +39,18 @@ nav.navUser {
                 justify-content: center;
             }
 
+            &.navUser-item--compare {
+                display: none;
+
+                @include breakpoint('medium') {
+                    display: none;
+                }
+            }
+
             .navUser-action {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
                 @include breakpoint('medium') {
                     padding: 1rem;
@@ -44,7 +60,11 @@ nav.navUser {
                     display: block;
 
                     span.navUser-item-cartLabel {
-                        display: block;
+                        height: auto;
+                        width: auto;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
 
                         i.icon {
                             margin: 0;
