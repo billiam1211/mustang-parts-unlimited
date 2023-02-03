@@ -39,15 +39,13 @@ export default function () {
             if (err) {
                 return false;
             }
-
-
-
             $quickSearchResults.html(response);
-            
             if (response.includes('0 product results')) {
                 $quickSearchResults.removeClass('has-results');
+                $('div.dropdown--quickSearch').removeClass('has-results');
             } else {
                 $quickSearchResults.addClass('has-results');
+                $('div.dropdown--quickSearch').addClass('has-results');
             }
 
             const $quickSearchResultsCurrent = $quickSearchResults.filter(':visible');

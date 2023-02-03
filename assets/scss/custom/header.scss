@@ -2,152 +2,209 @@ header.header {
     height: auto;
     background-color: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(5px);
-    padding-bottom: 10px;
-    // overflow: hidden;
 
-    &::before {
-        content: "";
-        height: 10px;
-        width: 150%;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 0) skewX(-50deg);
-        background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
-    }
+    div.headerContainer {
+        padding-bottom: 10px;
 
-    a.mobileMenu-toggle {
-        top: 50px;
-        transform: translate(0, -50%);
+        @include breakpoint('medium') {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+        }
 
-        span.mobileMenu-toggleIcon {
-            background-color: stencilColor('color-blue');
+        &::before {
+            content: "";
+            height: 10px;
+            width: 105%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0) skewX(-50deg);
+            background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
 
-            &::before,
-            &::after {
-                background-color: stencilColor('color-blue');
-            }
-
-            &::before {
-                width: calc(100% + 5px);
-            }
-
-            &::after {
-                width: calc(100% + 2px);
+            @include breakpoint('medium') {
+                display: none;
             }
         }
 
-        &.is-open {
+        a.mobileMenu-toggle {
+            top: 50px;
+            transform: translate(0, -50%);
+
+            @include breakpoint('medium') {
+                display: none;
+            }
+
             span.mobileMenu-toggleIcon {
-                background-color: transparent;
+                background-color: stencilColor('color-blue');
+
+                &::before,
+                &::after {
+                    background-color: stencilColor('color-blue');
+                }
 
                 &::before {
-                    width: calc(100%);
+                    width: calc(100% + 5px);
                 }
 
                 &::after {
-                    width: calc(100%);
+                    width: calc(100% + 2px);
+                }
+            }
+
+            &.is-open {
+                span.mobileMenu-toggleIcon {
+                    background-color: transparent;
+
+                    &::before {
+                        width: calc(100%);
+                    }
+
+                    &::after {
+                        width: calc(100%);
+                    }
                 }
             }
         }
-    }
 
-    .header-logo {
-        height: auto;
-        margin: 0;
-        position: absolute;
-        top: 50px;
-        left: 55px;
-        transform: translate(0%, -50%);
-        width: 50%;
-        height: 100%;
-        transition: all .3s ease-in-out;
-
-        @include breakpoint('small') {
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        @include breakpoint('medium') {
-            width: 30%;
+        .header-logo {
+            height: auto;
             margin: 0;
-            order: -1;
-        }
+            position: absolute;
+            top: 50px;
+            left: 55px;
+            transform: translate(0%, -50%);
+            width: 50%;
+            height: 100%;
+            transition: all .3s ease-in-out;
 
-        a.header-logo__link {
-            margin: 0;
-            width: 100%;
+            @include breakpoint('small') {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
 
-            div.header-logo-image-container {
-                min-height: initial;
+            @include breakpoint('medium') {
+                width: 35%;
+                margin: 0;
+                order: 0;
+                position: relative;
+                transform: initial;
+                top: initial;
+                left: initial;
+            }
 
-                img.header-logo-image {
-                    max-height: initial;
-                    object-fit: contain;
-                    width: 100%;
+            a.header-logo__link {
+                margin: 0;
+                width: 100%;
+
+                @include breakpoint('medium') {
                     height: 100%;
-                    transition: all .3s ease-in-out;
-                    padding: 1.5rem;
+                    width: 100%;
+                    display: block;
+                }
 
-                    @include breakpoint('small') {
-                        padding: 2.5rem;
-                    }
+                div.header-logo-image-container {
+                    min-height: initial;
 
                     @include breakpoint('medium') {
-                        margin: 0;
+                        height: 100%;
+                        width: 100%;
                     }
+
+                    img.header-logo-image {
+                        max-height: initial;
+                        object-fit: contain;
+                        width: 100%;
+                        height: 100%;
+                        transition: all .3s ease-in-out;
+                        padding: 1.5rem;
+
+                        @include breakpoint('small') {
+                            padding: 2.5rem;
+                        }
+
+                        @include breakpoint('medium') {
+                            margin: 0;
+                            max-height: 120px;
+                            padding: 1.5rem;
+                            object-position: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.navPages-container {
+            background-color: transparent;
+            position: relative;
+
+            @include breakpoint('medium') {
+                width: 100%;
+                order: 20;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: 100%;
+                    width: 100%;
+                    background-image: linear-gradient(to right, stencilColor('color-blue') 33%, stencilColor('color-greyDarkest') 66%);
+                    z-index: -1;
                 }
             }
         }
     }
 
-    div.navPages-container {
-        background-color: transparent;
-    }
 
     &.is-open {
         padding-bottom: 0;
 
-        &::before {
-            display: none;
-        }
-
-        div.navPages-container {
-            padding-top: 10px;
-            position: static;
-            transition: all .3s ease-in-out;
-            position: relative;
-            overflow: hidden;
-
+        div.headerContainer {
             &::before {
-                content: "";
-                height: 10px;
-                width: 150%;
-                position: absolute;
-                top: 0;
-                left: 50%;
-                background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
-                transform: translate(-500%, 0);
-                transition: all .5s ease-in-out;
-                animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                display: none;
+            }
 
-                @keyframes slide-top {
-                    0% {
-                        transform: translate(-200%, 0) skewX(-50deg);
-                        background-image: linear-gradient(to right, stencilColor('color-blue'), stencilColor('color-greyDarkest'));
-                    }
+            div.navPages-container {
+                padding-top: 10px;
+                position: static;
+                transition: all .3s ease-in-out;
+                position: relative;
+                overflow: hidden;
 
-                    50% {
-                        transform: translate(-200%, 0) skewX(-50deg);
-                        background-image: linear-gradient(to right, stencilColor('color-blue'), stencilColor('color-white') 25%, stencilColor('color-greyDarkest'));
-                    }
+                &::before {
+                    content: "";
+                    height: 10px;
+                    width: 150%;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
+                    transform: translate(-500%, 0);
+                    transition: all .5s ease-in-out;
+                    animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
-                    100% {
-                        transform: translate(-50%, 0) skewX(-50deg);
-                        background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
+                    @keyframes slide-top {
+                        0% {
+                            transform: translate(-200%, 0) skewX(-50deg);
+                            background-image: linear-gradient(to right, stencilColor('color-blue'), stencilColor('color-greyDarkest'));
+                        }
+
+                        50% {
+                            transform: translate(-200%, 0) skewX(-50deg);
+                            background-image: linear-gradient(to right, stencilColor('color-blue'), stencilColor('color-white') 25%, stencilColor('color-greyDarkest'));
+                        }
+
+                        100% {
+                            transform: translate(-50%, 0) skewX(-50deg);
+                            background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
+                        }
                     }
                 }
             }
         }
+
     }
 }

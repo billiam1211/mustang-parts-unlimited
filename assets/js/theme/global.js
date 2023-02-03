@@ -28,26 +28,31 @@ export default class Global extends PageManager {
         mobileMenuToggle();
         privacyCookieNotification();
         svgInjector();
-        // this.searchToggle();
+        this.searchToggle();
     }
 
     searchToggle() {
-        document.getElementById('quick-search-expand').addEventListener('click', (e) => {
-            if (window.innerWidth < 801) {
-                e.preventDefault();
-                document.querySelector('a.mobileMenu-toggle').click();
-                if (e.currentTarget.parentElement.classList.contains('hidden')) {
-                    e.currentTarget.parentElement.classList.remove('hidden');
-                } else {
-                    e.currentTarget.parentElement.classList.add('hidden');
+        const quickSearch = document.getElementById('quickSearch');
+        const navToggle = document.querySelector('a.mobileMenu-toggle');
+        const header = document.querySelector('header.header');
+        const quickSearchToggle = document.getElementById('quick-search-expand');
+        quickSearchToggle.addEventListener('click', (e) => {
+            if (quickSearch.classList.contains('is-open')) {
+                e.currentTarget.classList.add('is-open');
+                if (navToggle.classList.contains('is-open')) {
+                    navToggle.click();
+                    e.currentTarget.click();
                 }
+            } else {
+                e.currentTarget.classList.remove('is-open');
             }
         });
 
-        document.querySelector('a.mobileMenu-toggle').addEventListener('click', (e) => {
-            const header = document.querySelector('header.header');
-            if (!header.classList.contains('is-open')) {
-                document.querySelector('li.navUser-item--search').classList.remove('hidden');
+        navToggle.addEventListener('click', (e) => {
+            if (header.classList.contains('is-open')) {
+                if (quickSearch.classList.contains('is-open')) {
+                    quickSearchToggle.click();
+                }
             }
         });
     }
