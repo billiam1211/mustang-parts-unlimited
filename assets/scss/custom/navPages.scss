@@ -1,6 +1,7 @@
 nav.navPages {
     background-color: transparent;
     padding: 0;
+    max-width: 1400px;
 
     div.navPages-quickSearch {
         margin: 0;
@@ -28,11 +29,13 @@ nav.navPages {
     ul.navPages-list {
         @include breakpoint('medium') {
             display: flex;
+            justify-content: space-between;
         }
 
         li.navPages-item {
             @include breakpoint('medium') {
-                flex: 1;
+                // flex: 1;
+                width: auto;
             }
 
             a.navPages-action {
@@ -40,9 +43,12 @@ nav.navPages {
                 padding: 1rem 1.5rem;
 
                 @include breakpoint('medium') {
+                    white-space: nowrap;
                     display: flex;
                     justify-content: center;
                     color: stencilColor('color-white');
+                    font-size: remCalc(16px);
+                    padding: 1rem 2.5rem;
                 }
 
                 &::before {
@@ -218,6 +224,11 @@ nav.navPages {
 
                                 @include breakpoint('medium') {
                                     border-bottom: none;
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    justify-content: flex-start;
+                                    max-width: 1400px;
+                                    margin: 0 auto;
                                 }
                             }
                         }

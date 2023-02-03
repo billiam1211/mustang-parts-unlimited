@@ -11,7 +11,7 @@ nav.navUser {
         width: auto;
         position: relative;
         margin: 0;
-        padding: 0;
+        padding: 0 0 0 50px;
         top: initial;
         left: initial;
         right: initial;
@@ -19,6 +19,7 @@ nav.navUser {
         justify-content: center;
         order: 10;
         flex-grow: 1;
+        flex-direction: row;
     }
 
     ul.navUser-section {
@@ -61,6 +62,10 @@ nav.navUser {
 
             &.navUser-item--search {
                 display: block;
+
+                @include breakpoint('medium') {
+                    display: none;
+                }
 
                 &.hidden {
                     display: none;
@@ -168,6 +173,27 @@ nav.navUser {
         overflow: scroll;
         border: none;
 
+        @include breakpoint('medium') {
+            position: static;
+            transform: initial;
+            top: initial;
+            left: initial;
+            padding: 0;
+            margin: 0 1rem 0 0;
+            overflow: initial;
+            max-height: initial;
+            flex: 1;
+            order: -1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 400px;
+        }
+
+        @include breakpoint('large') {
+            max-width: 500px;
+        }
+
         &::before {
             content: "";
             height: 10px;
@@ -177,10 +203,18 @@ nav.navUser {
             left: 50%;
             transform: translate(-50%, 0) skewX(-50deg);
             background-image: linear-gradient(to left, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
+
+            @include breakpoint('medium') {
+                display: none;
+            }
         }
 
         div.container {
             padding: 1.5rem;
+
+            @include breakpoint('medium') {
+                padding: 0;
+            }
 
             form.form {
                 margin: 0;
@@ -189,6 +223,7 @@ nav.navUser {
                 fieldset.form-fieldset {
                     div.form-field {
                         input {
+                            height: 45px;
                             border-radius: 30px;
                             border: 3px solid stencilColor('color-blue');
                         }

@@ -3,14 +3,20 @@ header.header {
     background-color: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(5px);
 
+    @include breakpoint('medium') {
+        padding-bottom: 75px;
+    }
+
     div.headerContainer {
-        padding-bottom: 10px;
 
         @include breakpoint('medium') {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         &::before {
@@ -84,6 +90,10 @@ header.header {
                 transform: translate(-50%, -50%);
             }
 
+            @media only screen and (min-width: 801px) {
+                width: 30%;
+            }
+
             @include breakpoint('medium') {
                 width: 35%;
                 margin: 0;
@@ -127,8 +137,12 @@ header.header {
                         @include breakpoint('medium') {
                             margin: 0;
                             max-height: 120px;
-                            padding: 1.5rem;
+                            padding: 0;
                             object-position: left;
+                        }
+
+                        @include breakpoint('large') {
+                            padding: 0;
                         }
                     }
                 }
@@ -142,6 +156,11 @@ header.header {
             @include breakpoint('medium') {
                 width: 100%;
                 order: 20;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+                height: fit-content;
 
                 &::before {
                     content: "";
@@ -205,6 +224,5 @@ header.header {
                 }
             }
         }
-
     }
 }
