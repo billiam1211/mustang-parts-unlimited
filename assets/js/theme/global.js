@@ -13,6 +13,7 @@ import cartPreview from './global/cart-preview';
 import privacyCookieNotification from './global/cookieNotification';
 import carousel from './common/carousel';
 import svgInjector from './global/svg-injector';
+import { css } from 'jquery';
 
 export default class Global extends PageManager {
     onReady() {
@@ -27,5 +28,27 @@ export default class Global extends PageManager {
         mobileMenuToggle();
         privacyCookieNotification();
         svgInjector();
+        // this.searchToggle();
+    }
+
+    searchToggle() {
+        document.getElementById('quick-search-expand').addEventListener('click', (e) => {
+            if (window.innerWidth < 801) {
+                e.preventDefault();
+                document.querySelector('a.mobileMenu-toggle').click();
+                if (e.currentTarget.parentElement.classList.contains('hidden')) {
+                    e.currentTarget.parentElement.classList.remove('hidden');
+                } else {
+                    e.currentTarget.parentElement.classList.add('hidden');
+                }
+            }
+        });
+
+        document.querySelector('a.mobileMenu-toggle').addEventListener('click', (e) => {
+            const header = document.querySelector('header.header');
+            if (!header.classList.contains('is-open')) {
+                document.querySelector('li.navUser-item--search').classList.remove('hidden');
+            }
+        });
     }
 }

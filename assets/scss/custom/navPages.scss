@@ -6,6 +6,7 @@ nav.navPages {
         margin: 0;
         padding: 1.5rem;
         border-bottom: 1px solid stencilColor('color-greyLight');
+        display: none;
 
         div.container {
             form.form {
@@ -29,6 +30,10 @@ nav.navPages {
             a.navPages-action {
                 transition: all .3s ease-in-out;
                 padding: 1rem 1.5rem;
+
+                &.activePage {
+                    color: stencilColor('color-greyDarkest');
+                }
 
                 i.icon {
                     svg {
@@ -59,32 +64,44 @@ nav.navPages {
                         transition: all .3s ease-in-out;
 
                         ul.navPage-subMenu-list {
+                            padding: 1.5rem 0;
+                            margin: 0;
+
                             li.navPage-subMenu-item {
+                                padding: 0;
+
                                 a.navPage-subMenu-action {
-                                    padding-left: 3rem;
+                                    padding: .75rem 0 .5rem 3rem;
 
                                     span.collapsible-icon-wrapper {
                                         width: auto;
                                     }
 
-                                    &.activePage {
-                                        //
-                                    }
+                                    &.has-subMenu {
+                                        &+ul.navPage-childList {
+                                            margin: 0;
+                                            padding: 0;
+                                            border: none;
 
-                                    &+ul.navPage-childList {
-                                        margin: 0 0 0 3rem;
-                                        padding: 1.5rem 0rem;
-                                        
-                                        li.navPage-childList-item {
-                                            a.navPage-childList-action {
-                                                padding: .5rem 3rem;
+                                            &.is-open {
+                                                margin: 0 0 1.5rem 0;
+
+                                                li.navPage-childList-item {
+
+                                                    a.navPage-childList-action {
+                                                        padding-left: 5rem;
+                                                    }
+                                                }
+                                            }
+
+                                            li.navPage-childList-item {
+                                                a.navPage-childList-action {
+                                                    padding: .5rem 3rem;
+                                                }
                                             }
                                         }
-
-                                        &.is-open {
-                                            border-left: 1px solid stencilColor('color-greyLighter');
-                                        }
                                     }
+
                                 }
                             }
                         }

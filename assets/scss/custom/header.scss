@@ -3,7 +3,7 @@ header.header {
     background-color: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(5px);
     padding-bottom: 10px;
-    overflow: hidden;
+    // overflow: hidden;
 
     &::before {
         content: "";
@@ -13,13 +13,11 @@ header.header {
         bottom: 0;
         left: 50%;
         transform: translate(-50%, 0) skewX(-50deg);
-        background-image: linear-gradient(to right, stencilColor('color-blue') 35%, stencilColor('color-greyDarkest'), stencilColor('color-blue'));
+        background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
     }
 
-
     a.mobileMenu-toggle {
-        top: 41.5px;
-        left: 0;
+        top: 50px;
         transform: translate(0, -50%);
 
         span.mobileMenu-toggleIcon {
@@ -54,17 +52,50 @@ header.header {
         }
     }
 
-    nav.navUser {
-        // 
-    }
-
     .header-logo {
         height: auto;
+        margin: 0;
+        position: absolute;
+        top: 50px;
+        left: 55px;
+        transform: translate(0%, -50%);
+        width: 50%;
+        height: 100%;
+        transition: all .3s ease-in-out;
+
+        @include breakpoint('small') {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @include breakpoint('medium') {
+            width: 30%;
+            margin: 0;
+            order: -1;
+        }
 
         a.header-logo__link {
+            margin: 0;
+            width: 100%;
+
             div.header-logo-image-container {
+                min-height: initial;
+
                 img.header-logo-image {
                     max-height: initial;
+                    object-fit: contain;
+                    width: 100%;
+                    height: 100%;
+                    transition: all .3s ease-in-out;
+                    padding: 1.5rem;
+
+                    @include breakpoint('small') {
+                        padding: 2.5rem;
+                    }
+
+                    @include breakpoint('medium') {
+                        margin: 0;
+                    }
                 }
             }
         }
@@ -95,7 +126,7 @@ header.header {
                 position: absolute;
                 top: 0;
                 left: 50%;
-                // background-color: stencilColor('color-blue');
+                background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
                 transform: translate(-500%, 0);
                 transition: all .5s ease-in-out;
                 animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -113,7 +144,7 @@ header.header {
 
                     100% {
                         transform: translate(-50%, 0) skewX(-50deg);
-                        background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%, stencilColor('color-blue'));
+                        background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
                     }
                 }
             }

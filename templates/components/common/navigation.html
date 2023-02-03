@@ -2,7 +2,6 @@
     {{#or customer (unless settings.hide_price_from_guests)}}
         {{> components/common/currency-selector}}
     {{/or}}
-
     <ul class="navUser-section navUser-section--alt">
         {{#if customer.store_credit.value '>' 0}}
             <li class="navUser-item">
@@ -36,7 +35,7 @@
             </li>
             <li class="navUser-item navUser-item--divider">|</li>
         {{/if}}
-        <li class="navUser-item">
+        <li class="navUser-item navUser-item--search">
             <button class="navUser-action navUser-action--quickSearch"
                type="button"
                id="quick-search-expand"
@@ -44,7 +43,9 @@
                aria-controls="quickSearch"
                aria-label="{{lang 'common.search'}}"
             >
-                {{lang 'common.search'}}
+                <i class="icon">
+                    <svg><use xlink:href="#icon-search" /></svg>
+                </i>
             </button>
         </li>
         {{#if settings.gift_certificates_enabled}}
