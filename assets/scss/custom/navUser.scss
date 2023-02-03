@@ -240,6 +240,7 @@ nav.navUser {
             form.form {
                 margin: 0;
                 max-width: initial;
+                z-index: 1;
 
                 fieldset.form-fieldset {
                     div.form-field {
@@ -253,14 +254,38 @@ nav.navUser {
 
                 &+section.quickSearchResults {
                     margin: 0;
+                    opacity: 0;
+
+                    @include breakpoint('medium') {
+                        position: absolute;
+                        background-color: stencilColor('color-white');
+                        top: calc(100% - 0px);
+                        border: 1px dashed stencilColor('color-blue');
+                        border-radius: 0 0px 30px 30px;
+                        border-top: none;
+                        padding-top: 0px;
+                        padding-bottom: 1.5rem;
+                        overflow: hidden;
+                        transition: all .3s ease-in-out;
+                    }
 
                     &.has-results {
+                        opacity: 1;
                         margin-top: 1.5rem;
+
+                        @include breakpoint('medium') {
+                            margin-top: 0;
+                        }
 
                         ul.productGrid {
                             margin: 0;
                             display: flex;
                             flex-wrap: wrap;
+
+                            @include breakpoint('medium') {
+                                max-height: 500px;
+                                overflow: scroll;
+                            }
 
                             li.product {
                                 width: 100%;
@@ -269,9 +294,18 @@ nav.navUser {
                                     width: 50%;
                                 }
 
+                                @include breakpoint('medium') {
+                                    width: 100%;
+                                }
+
                                 article.card {
                                     border-radius: 5px;
                                     overflow: hidden;
+
+                                    @include breakpoint('medium') {
+                                        display: flex;
+                                        margin-bottom: 0;
+                                    }
 
                                     &:hover,
                                     &:focus {
@@ -279,6 +313,19 @@ nav.navUser {
 
                                         div.card-body {
                                             background-color: stencilColor('color-blue');
+                                        }
+                                    }
+
+                                    figure.card-figure {
+                                        @include breakpoint('medium') {
+                                            width: 30%;
+                                        }
+                                    }
+
+                                    div.card-body {
+                                        @include breakpoint('medium') {
+                                            width: 70%;
+                                            padding: 1rem;
                                         }
                                     }
                                 }

@@ -40,23 +40,20 @@ export default function () {
                 return false;
             }
             $quickSearchResults.html(response);
-            if (response.includes('0 product results')) {
-                $quickSearchResults.removeClass('has-results');
-                $('div.dropdown--quickSearch').removeClass('has-results');
-            } else {
-                $quickSearchResults.addClass('has-results');
-                $('div.dropdown--quickSearch').addClass('has-results');
-            }
 
             const $quickSearchResultsCurrent = $quickSearchResults.filter(':visible');
 
             const $noResultsMessage = $quickSearchResultsCurrent.find('.quickSearchMessage');
             if ($noResultsMessage.length) {
+                $quickSearchResults.removeClass('has-results');
+                $('div.dropdown--quickSearch').removeClass('has-results');
                 $noResultsMessage.attr({
                     role: 'status',
                     'aria-live': 'polite',
                 });
             } else {
+                $quickSearchResults.addClass('has-results');
+                $('div.dropdown--quickSearch').addClass('has-results');
                 const $quickSearchAriaMessage = $quickSearchResultsCurrent.next();
                 $quickSearchAriaMessage.addClass('u-hidden');
 
@@ -64,6 +61,14 @@ export default function () {
                 const itemsFoundCount = $quickSearchResultsCurrent.find('.product').length;
 
                 $quickSearchAriaMessage.text(`${itemsFoundCount} ${predefinedText} ${searchQuery}`);
+
+                const modalClose = document.querySelector('nav.navUser section.quickSearchResults button.modal-close');
+
+                modalClose.addEventListener('click', (e) => {
+                    console.log('click click click')
+                    document.getElementById('nav-quick-search').value = "";
+                    doSearch('');
+                });
 
                 setTimeout(() => {
                     $quickSearchAriaMessage.removeClass('u-hidden');

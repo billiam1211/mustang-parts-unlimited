@@ -83,6 +83,7 @@ nav.navPages {
                 &:hover,
                 &:focus {
                     color: stencilColor('color-blue');
+                    outline: initial !important;
 
                     @include breakpoint('medium') {
                         color: stencilColor('color-blue');
@@ -97,7 +98,7 @@ nav.navPages {
                             @keyframes slide-in-nav {
                                 0% {
                                     opacity: 0;
-                                    transform: translate(-500px, -50%) skewX(-30deg);
+                                    transform: translate(-100%, -50%) skewX(-30deg);
                                 }
 
                                 100% {
@@ -157,6 +158,11 @@ nav.navPages {
                                         font-size: remCalc(20px);
                                         padding: 0 1rem;
                                         border-bottom: 1px dashed stencilColor('color-blue');
+
+                                        &:hover,
+                                        &:focus {
+                                            color: stencilColor('color-greyLight');
+                                        }
                                     }
 
                                     &::before {

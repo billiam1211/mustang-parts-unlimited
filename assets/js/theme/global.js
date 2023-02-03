@@ -28,14 +28,15 @@ export default class Global extends PageManager {
         mobileMenuToggle();
         privacyCookieNotification();
         svgInjector();
-        this.searchToggle();
+        this.search();
     }
 
-    searchToggle() {
+    search() {
         const quickSearch = document.getElementById('quickSearch');
         const navToggle = document.querySelector('a.mobileMenu-toggle');
         const header = document.querySelector('header.header');
         const quickSearchToggle = document.getElementById('quick-search-expand');
+
         quickSearchToggle.addEventListener('click', (e) => {
             if (quickSearch.classList.contains('is-open')) {
                 e.currentTarget.classList.add('is-open');

@@ -1,0 +1,9 @@
+body {
+
+    main.body {
+        margin-top: 65px;
+        @include breakpoint('medium') {
+            margin-top: 35px;
+        }
+    }
+}
