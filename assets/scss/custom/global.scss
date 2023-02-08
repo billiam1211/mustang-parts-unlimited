@@ -2,8 +2,18 @@ body {
 
     main.body {
         margin-top: 65px;
+
         @include breakpoint('medium') {
             margin-top: 35px;
+        }
+
+        &.pages-home {
+            margin-bottom: 0;
+
+            div.container {
+                max-width: initial;
+                padding: 0;
+            }
         }
     }
 }

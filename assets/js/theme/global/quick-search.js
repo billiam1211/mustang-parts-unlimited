@@ -52,6 +52,7 @@ export default function () {
                     'aria-live': 'polite',
                 });
             } else {
+                // add class indicating results have been injected into the section element
                 $quickSearchResults.addClass('has-results');
                 $('div.dropdown--quickSearch').addClass('has-results');
                 const $quickSearchAriaMessage = $quickSearchResultsCurrent.next();
@@ -61,12 +62,13 @@ export default function () {
                 const itemsFoundCount = $quickSearchResultsCurrent.find('.product').length;
 
                 $quickSearchAriaMessage.text(`${itemsFoundCount} ${predefinedText} ${searchQuery}`);
-
+                // set variable for the modal close button, since it now is written to the page along with the results
                 const modalClose = document.querySelector('nav.navUser section.quickSearchResults button.modal-close');
-
+                // set up click event listener
                 modalClose.addEventListener('click', (e) => {
-                    console.log('click click click')
+                    // on click set the value of the search input to an empty string
                     document.getElementById('nav-quick-search').value = "";
+                    // trigger a search for an empty string which will reset the quickSearch component back to it's initial state
                     doSearch('');
                 });
 

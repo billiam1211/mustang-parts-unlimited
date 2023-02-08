@@ -9,7 +9,7 @@ nav.navPages {
         border-bottom: 1px solid stencilColor('color-greyLight');
         display: none;
 
-        div.container {
+        navUser-item--cart div.container {
             form.form {
                 fieldset {
                     div.form-field {
@@ -47,7 +47,7 @@ nav.navPages {
                     display: flex;
                     justify-content: center;
                     color: stencilColor('color-white');
-                    font-size: remCalc(16px);
+                    font-size: remCalc(14px);
                     padding: 1rem 2.5rem;
                 }
 
@@ -67,6 +67,10 @@ nav.navPages {
 
                 &.activePage {
                     color: stencilColor('color-greyDarkest');
+
+                    @include breakpoint('medium') {
+                        color: stencilColor('color-white');
+                    }
                 }
 
                 i.icon {
@@ -132,6 +136,10 @@ nav.navPages {
                     &+div.navPage-subMenu {
                         transition: all .3s ease-in-out;
 
+                        @include breakpoint('medium') {
+                            padding-bottom: 1.5rem !important;
+                        }
+
                         ul.navPage-subMenu-list {
                             padding: 1.5rem 0;
                             margin: 0;
@@ -155,9 +163,9 @@ nav.navPages {
                                         color: stencilColor('color-blue');
                                         display: flex;
                                         justify-content: flex-start;
-                                        font-size: remCalc(20px);
-                                        padding: 0 1rem;
-                                        border-bottom: 1px dashed stencilColor('color-blue');
+                                        font-size: remCalc(18px);
+                                        padding: 0;
+                                        border: none;
 
                                         &:hover,
                                         &:focus {
@@ -209,7 +217,7 @@ nav.navPages {
                                                         display: flex;
                                                         justify-content: flex-start;
                                                         color: stencilColor('color-blue');
-                                                        padding: 5px 1rem;
+                                                        padding: 5px 0;
                                                     }
 
                                                     &:hover,
@@ -217,6 +225,7 @@ nav.navPages {
 
                                                         @include breakpoint('medium') {
                                                             background-color: stencilColor('color-blue');
+                                                            padding-left: 1rem;
                                                             color: stencilColor('color-white');
                                                         }
                                                     }
@@ -240,6 +249,8 @@ nav.navPages {
 
                             @include breakpoint('medium') {
                                 background-color: stencilColor('color-white');
+                                background-color: rgba(255, 255, 255, .85);
+                                backdrop-filter: blur(5px);
                                 border-bottom: 10px solid stencilColor('color-blue');
                             }
 
@@ -276,9 +287,7 @@ nav.navPages {
         }
 
         &+ul.navPages-list.navPages-list--user {
-            @include breakpoint('medium') {
-                display: none;
-            }
+            display: none;
         }
     }
 }

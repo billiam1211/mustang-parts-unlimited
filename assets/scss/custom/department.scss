@@ -1,0 +1,203 @@
+main.body.pages-custom-category-department {
+    margin-top: 45px;
+
+    @include breakpoint('medium') {
+        margin-top: 0;
+    }
+
+    div.container {
+        max-width: initial;
+        padding: 0;
+
+        div.departmentBanner {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-bottom: 100px;
+
+            div.departmentBanner-image {
+                height: 100%;
+                width: 100%;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: rgba(0, 0, 0, .33);
+                    height: 100%;
+                    width: 100%;
+                }
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    max-height: 400px;
+                }
+            }
+
+            div.departmentBanner-content {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -25%);
+
+                .page-heading {
+                    color: stencilColor('color-white');
+                    font-size: remCalc(36px);
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) skewX(-30deg);
+                        background-color: stencilColor('color-greyDarkest');
+                        backdrop-filter: blur(10px);
+                        border: 5px solid stencilColor('color-white');
+                        height: 125%;
+                        width: 155%;
+                        z-index: -1;
+
+                    }
+                }
+            }
+        }
+
+        div.departmentPage {
+            max-width: 1440px;
+            padding: 0 20px;
+            margin: 0 auto;
+
+            div.page-content {
+                ul.subcategory-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    margin: 0;
+
+                    li.subcategoryCard {
+                        width: 100%;
+                        list-style: none;
+                        margin: 0;
+                        text-align: center;
+                        padding: 1rem;
+                        display: flex;
+                        flex-direction: column;
+                        
+                        @include breakpoint('small') {
+                            width: 50%;
+                        }
+
+                        @include breakpoint('medium') {
+                            width: 33.33%;
+                        }
+
+                        @include breakpoint('large') {
+                            width: 25%;
+                        }
+
+                        div.subcategoryCard-container {
+                            border: 1px solid stencilColor('color-greyLight');
+                            border-radius: 5px;
+                            display: flex;
+                            flex-direction: column;
+                            transition: all .3s ease-in-out;
+                            flex-grow: 1;
+
+                            div.subcategoryCard-imageContainer {
+                                position: relative;
+                                padding: 1rem;
+                                height: 85%;
+
+                                a.subcategoryCard-link {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    height: 100%;
+                                    width: 100%;
+                                }
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                    padding: 10px;
+                                    border-bottom: 1px solid stencilColor('color-grey');
+                                    transition: all .3s ease-in-out;
+                                }
+                            }
+
+                            div.subcategoryCard-body {
+                                text-align: center;
+                                height: 15%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                padding: 0 1rem 1rem 1rem;
+
+                                h2 {
+                                    margin: 0;
+                                    position: relative;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    padding: .5rem;
+
+                                    a {
+                                        text-decoration: none;
+                                        font-size: remCalc(16px);
+                                        transition: all .3s ease-in-out;
+
+                                        @include breakpoint('medium') {
+                                            font-size: remCalc(18px);
+                                        }
+
+                                        &:hover,
+                                        &:focus {
+                                            color: stencilColor('color-blue');
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover,
+                        &:focus {
+                            div.subcategoryCard-container {
+                                border: 1px solid stencilColor('color-blue');
+                                box-shadow: 4px 8px 10px stencilColor('color-greyDark');
+
+                                div.subcategoryCard-imageContainer {
+
+                                    img {
+                                        padding: 1.5rem;
+                                        background-color: stencilColor('color-white');
+                                    }
+
+                                    &::before {
+                                        opacity: 1;
+                                        transform: translate(-50%, 0) scale(1);
+                                    }
+                                }
+
+                                div.subcategoryCard-body {
+
+                                    h2 {
+                                        a {
+                                            color: stencilColor('color-blue');
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

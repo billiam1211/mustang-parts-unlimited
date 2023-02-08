@@ -1,0 +1,235 @@
+section.subscriptionSection[data-section-type="newsletterSubscription"] {
+    width: 100%;
+    background-color: stencilColor('color-blue');
+    padding: 0 20px 2.5rem 20px;
+    background-image: linear-gradient(stencilColor('color-greyDarkest') 5%, stencilColor('color-blue') 50%, stencilColor('color-greyDarkest') 95%);
+
+    @include breakpoint('medium') {
+        padding: 1.5rem 20px;
+    }
+
+    @include breakpoint('large') {
+        width: 100%;
+        margin: 0;
+    }
+
+    div.subscription-container {
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint('medium') {
+            flex-direction: row;
+        }
+
+        div.subscriptionImg-container {
+            text-align: center;
+            padding: 1.5rem;
+
+            @include breakpoint('medium') {
+                width: 50%;
+            }
+
+            img {
+                margin: 0 auto;
+                max-height: 200px;
+                width: 50%;
+                object-fit: cover;
+            }
+        }
+
+        div.subscriptionForm-container {
+            width: 100%;
+            text-align: center;
+
+            @include breakpoint('medium') {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: left;
+            }
+
+            @include breakpoint('large') {
+                width: 35%;
+            }
+
+            h3 {
+                color: stencilColor('color-white');
+                margin: 0 0 1rem 0;
+
+                @include breakpoint('medium') {
+                    font-size: remCalc(22px);
+                }
+            }
+
+            p {
+                color: stencilColor('color-white');
+                font-size: remCalc(14px);
+                margin: 0 0 1rem 0;
+
+                @include breakpoint('medium') {
+                    font-size: remCalc(16px);
+                }
+            }
+
+            form.form {
+                margin: 0;
+
+                div.form-field {
+                    margin: 0;
+
+                    div.form-prefixPostfix.wrap {
+                        input {
+                            border-radius: 30px;
+
+                            &.button {
+                                text-transform: uppercase;
+                                font-size: remCalc(16px);
+                                color: stencilColor('color-white');
+                                background-color: stencilColor('color-blue');
+                                border: 3px solid stencilColor('color-blue');
+                                transition: all .3s ease-in-out;
+
+                                &:hover,
+                                &:focus {
+                                    background-color: stencilColor('color-white');
+                                    border: 3px solid stencilColor('color-blue');
+                                    color: stencilColor('color-blue');
+                                    box-shadow: 2px 2px 10px stencilColor('color-greyDarkest');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+footer.footer {
+    background-color: stencilColor('color-white');
+    padding-top: 60px;
+    margin: 0;
+    position: relative;
+
+    @include breakpoint('medium') {
+        padding-top: 60px;
+    }
+
+    div.container {
+        max-width: 1400px;
+        padding: 0;
+
+        section.footer-info {
+
+
+            @include breakpoint('medium') {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            article.footer-info-col {
+                width: 100%;
+                text-align: center;
+
+                @include breakpoint('medium') {
+                    width: 25%;
+                    text-align: left;
+                    padding: 1.5rem;
+                }
+
+                @include breakpoint('large') {
+                    width: 33.33%;
+                }
+
+                &.footer-info-col--logo {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    @include breakpoint('small') {
+                        width: 100%;
+                        margin-bottom: 20px;
+                    }
+
+                    @include breakpoint('medium') {
+                        margin-bottom: 40px;
+                        width: 50%;
+                        margin: 0 auto;
+                        justify-content: flex-start;
+                    }
+
+                    @include breakpoint('large') {
+                        width: 33.33%;
+                    }
+
+                    a {
+                        width: 100%;
+
+                        @include breakpoint('large') {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                        }
+
+                        div {
+                            @include breakpoint('medium') {
+                                text-align: left;
+                            }
+
+                            img {
+                                width: 50%;
+                                max-height: initial;
+
+                                @include breakpoint('medium') {
+                                    width: 100%;
+                                    margin: 0;
+                                    padding-right: 30%;
+                                }
+
+
+                                @include breakpoint('large') {
+                                    padding-right: 10%;
+                                    width: 75%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .footer-info-heading {
+                    color: stencilColor('color-greyDarkest');
+                    font-size: remCalc(20px);
+                    text-transform: uppercase;
+                    font-weight: 900;
+                }
+
+                ul.footer-info-list {
+                    li {
+                        a {
+                            font-size: remCalc(16px);
+                            color: stencilColor('color-blue');
+                        }
+                    }
+                }
+
+                address {
+                    color: stencilColor('color-blue');
+                    font-size: remCalc(16px);
+                    margin-bottom: 1rem;
+
+                    &+strong {
+                        color: stencilColor('color-blue');
+                        font-size: remCalc(16px);
+                    }
+                }
+
+                p {
+                    color: stencilColor('color-blue');
+                }
+            }
+        }
+    }
+}

@@ -29,6 +29,19 @@ export default class Global extends PageManager {
         privacyCookieNotification();
         svgInjector();
         this.search();
+        this.stickyHeaderManager();
+        this.department();
+    }
+
+    stickyHeaderManager() {
+        const header = document.querySelector('header.header');
+        window.addEventListener('scroll', () => {
+            if (header.offsetHeight < window.pageYOffset) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
     }
 
     search() {
@@ -56,5 +69,50 @@ export default class Global extends PageManager {
                 }
             }
         });
+    }
+
+    department() {
+        console.log('department', );
+        if (document.querySelectorAll('li.subcategoryCard').length) {
+            console.log('1', );
+            // custom equal heights function for blog articles
+            const equalHeights = (selector) => {
+                const elms = document.querySelectorAll(selector);
+                const len = elms.length;
+                let tallest = 0;
+                // eslint-disable-next-line one-var
+                let elm,
+                    elmHeight,
+                    x;
+        
+                for (x = 0; x < len; x++) {
+                    elms[x].style.height = 'auto';
+                }
+        
+                for (x = 0; x < len; x++) {
+                    elm = elms[x];
+                    elmHeight = elm.offsetHeight;
+                    tallest = (elmHeight > tallest) ? elmHeight : tallest;
+                }
+        
+                for (x = 0; x < len; x++) {
+                    // eslint-disable-next-line prefer-template
+                    elms[x].style.height = tallest + 'px';
+                }
+            };
+            const debounce = (callback, wait) => {
+                let timeout;
+                return (...args) => {
+                    const context = this;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => callback.apply(context, args), wait);
+                };
+            };
+            const debounceResize = debounce(() => {
+                equalHeights('li.subcategoryCard');
+            }, 250);
+            window.addEventListener('resize', debounceResize);
+            window.dispatchEvent(new Event('resize'));
+        }
     }
 }

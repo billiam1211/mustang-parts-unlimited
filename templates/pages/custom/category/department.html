@@ -1,0 +1,75 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{#if category.image}}
+    <div class="departmentBanner">
+        <div class="departmentBanner-image">
+            {{> components/common/responsive-img
+                image=category.image
+                fallback_size=theme_settings.zoom_size
+                lazyload=theme_settings.lazyload_mode
+                class="category-header-image"
+            }}
+        </div>
+        <div class="departmentBanner-content">
+            <h1 class="page-heading">{{category.name}}</h1>
+        </div>
+    </div>
+{{else}}
+    <h1 class="page-heading departmentHeading">{{category.name}}</h1>
+{{/if}}
+
+{{{region name="category_below_header"}}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+{{{category.description}}}
+
+<div class="page departmentPage">
+    <div class="page-content" id="product-listing-container">
+        {{#if category.subcategories.length}}
+            <ul class="subcategory-list">
+                {{#each category.subcategories}}
+                    <li class="subcategoryCard">
+                        <div class="subcategoryCard-container">
+                            <div class="subcategoryCard-imageContainer">
+                                <!-- {{#if image.data.length}}
+                                    <img src="{{getImage image 'gallery_size' image.data}}" alt="{{image.alt}}">
+                                {{else}}
+                                    <img class="no-cateogry-image" src="https://cdn11.bigcommerce.com/s-1xzl5c4w75/images/stencil/original/image-manager/mustang-logo-tbg.png">
+                                {{/if}} -->
+                                <img src="https://cdn11.bigcommerce.com/s-1xzl5c4w75/images/stencil/original/image-manager/{{dashcase name}}.png" alt="{{name}}">
+                                <a href="{{url}}" class="subcategoryCard-link">
+                                </a>
+                            </div>
+                            <div class="subcategoryCard-body">
+                                <h2 class="subcategoryCard-title">
+                                    <a href="{{url}}" class="subcategoryCard-action">{{name}}</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+        {{{region name="category_below_content"}}}
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

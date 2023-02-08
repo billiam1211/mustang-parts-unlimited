@@ -2,9 +2,12 @@ header.header {
     height: auto;
     background-color: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(5px);
+    transition: all .3s ease-in-out;
 
     @include breakpoint('medium') {
-        padding-bottom: 75px;
+        padding-bottom: 52px;
+        background-color: stencilColor('color-white');
+        backdrop-filter: initial;
     }
 
     div.headerContainer {
@@ -84,6 +87,7 @@ header.header {
             width: 50%;
             height: 100%;
             transition: all .3s ease-in-out;
+            max-height: 100px;
 
             @include breakpoint('small') {
                 left: 50%;
@@ -103,25 +107,25 @@ header.header {
                 top: initial;
                 left: initial;
             }
-
+            
             a.header-logo__link {
                 margin: 0;
                 width: 100%;
-
+                
                 @include breakpoint('medium') {
                     height: 100%;
                     width: 100%;
                     display: block;
                 }
-
+                
                 div.header-logo-image-container {
                     min-height: initial;
                     height: 100%;
-
+                    
                     @include breakpoint('medium') {
                         width: 100%;
                     }
-
+                    
                     img.header-logo-image {
                         max-height: initial;
                         object-fit: contain;
@@ -129,16 +133,16 @@ header.header {
                         height: 100%;
                         transition: all .3s ease-in-out;
                         padding: 1.5rem;
-
+                        
                         @media only screen and (min-width: 801px) {
                             padding: .5rem;
                         }
-
+                        
                         @include breakpoint('medium') {
                             margin: 0;
-                            max-height: 100px;
                             padding: 0;
                             object-position: left;
+                            max-height: 100px;
                         }
 
                         @include breakpoint('large') {
@@ -222,6 +226,23 @@ header.header {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    &.sticky {
+        position: sticky;
+        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+        @keyframes slide-in-top {
+            0% {
+                transform: translateY(-500px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
     }

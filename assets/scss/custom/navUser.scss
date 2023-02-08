@@ -68,12 +68,18 @@ nav.navUser {
 
                         i.icon {
                             margin: 0;
-                            height: 16px;
-                            width: 16px;
+                            height: auto;
+                            width: auto;
 
-                            @media only screen and (min-width: 500px) {
-                                height: 24px;
-                                width: 24px;
+                            svg {
+                                display: block;
+                                height: 16px;
+                                width: 16px;
+
+                                @include breakpoint('small') {
+                                    height: 24px;
+                                    width: 24px;
+                                }
                             }
                         }
                     }
@@ -128,8 +134,7 @@ nav.navUser {
                         }
 
                         svg {
-                            stroke: initial;
-                            fill: stencilColor('color-blue');
+                            stroke: stencilColor('color-white');
                         }
 
                         @media only screen and (min-width: 500px) {
@@ -173,9 +178,108 @@ nav.navUser {
                         }
 
                         svg {
-                            stroke: transparent;
+                            stroke: stencilColor('color-white');
                         }
                     }
+                }
+            }
+
+            &.navUser-item--cart {
+                position: relative;
+
+                @include breakpoint('medium') {
+                    position: static;
+                }
+
+                a.navUser-action {
+                    position: relative;
+
+                    i.icon {
+                        margin: 0;
+                        height: auto;
+                        width: auto;
+
+                        svg {
+                            display: block;
+                            height: 16px;
+                            width: 16px;
+
+                            @media (min-width: '500px') {
+                                height: 24px;
+                                width: 24px;
+                            }
+                        }
+                    }
+
+                    span.countPill {
+                        display: none;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        transition: all .3s ease-in-out;
+
+                        @include breakpoint('small') {
+                            top: 5px;
+                            right: 5px;
+                        }
+
+                        &.countPill--positive {
+                            display: block;
+                        }
+                    }
+
+                    &.is-open {
+                        // 
+                    }
+                }
+
+                div.dropdown-menu#cart-preview-dropdown {
+                    min-width: 300px;
+                    width: auto;
+                    top: 100% !important;
+                    right: 0 !important;
+                    border-radius: 15px 10px 15px 15px;
+
+                    @include breakpoint('medium') {
+                        top: 75% !important;
+                        right: 3px !important;
+                        min-width: 400px;
+                    }
+
+                    div.previewCartAction {
+                        div.previewCartAction-checkout {
+                            a.button {
+                                background-color: stencilColor('color-blue');
+                                border: 1px solid stencilColor('color-blue');
+                                border-radius: 30px;
+                                transition: all .3s ease-in-out;
+
+                                &:hover,
+                                &:focus {
+                                    background-color: stencilColor('color-white');
+                                    color: stencilColor('color-blue');
+                                }
+                            }
+                        }
+
+                        div.previewCartAction-viewCart {
+                            a.button {
+                                border-radius: 30px;
+                                border: 1px dashed stencilColor('color-blue');
+                                color: stencilColor('color-greyDarkest');
+                                transition: all .3s ease-in-out;
+
+                                &:hover,
+                                &:focus {
+                                    border: 1px dashed stencilColor('color-greyDarkest');
+                                    background-color: stencilColor('color-greyDarkest');
+                                    color: stencilColor('color-white');
+                                }
+                            }
+                        }
+                    }
+
+                    &.is-open {}
                 }
             }
         }

@@ -6,8 +6,8 @@
     "footer": {
         "title": "Footer Start",
         "brands": "Popular Brands",
-        "navigate": "Navigate",
-        "info": "Info",
+        "navigate": "Pages",
+        "info": "Locations",
         "categories": "Categories",
         "call_us": "Call us at {phone_number}",
         "powered_by": "Powered by"
@@ -829,7 +829,7 @@
         "comments": "Comments"
     },
     "newsletter": {
-        "subscribe": "Subscribe to our newsletter",
+        "subscribe": "Join our mailing list",
         "subscribe_intro": "Get the latest updates on new products and upcoming sales",
         "subscribe_submit": "Subscribe",
         "email_placeholder": "Your email address",

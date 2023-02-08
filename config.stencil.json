@@ -1,10 +1,12 @@
 {
-  "customLayouts": {
-    "brand": {},
-    "category": {},
-    "page": {},
-    "product": {}
-  },
-  "normalStoreUrl": "https://mustangpartsunlimited.com/",
-  "port": 3000
+	"customLayouts": {
+		"brand": {},
+		"category": {
+			"department.html": ["/mustang-gt/1994-1995/", "/ford-mustang-gt/1996-1998/", "/mustang-gt/1996-1998/"]
+		},
+		"page": {},
+		"product": {}
+	},
+	"normalStoreUrl": "https://mustangpartsunlimited.com/",
+	"port": 3000
 }
