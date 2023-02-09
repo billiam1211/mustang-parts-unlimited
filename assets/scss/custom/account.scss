@@ -1,0 +1,121 @@
+main#main-content {
+    &[class*="pages-account"] {
+        div.account {
+            width: 100%;
+
+            @include breakpoint('medium') {
+                width: 75%;
+            }
+
+            nav.navBar {
+                display: block;
+            }
+
+            section.account-content {
+                div.alertBox {
+                    background-color: stencilColor('color-blue');
+                }
+            }
+
+            ul.addressList {
+                li.address {
+                    div.panel-body {
+                        background-color: stencilColor('color-white');
+                        border: 1px solid stencilColor('color-blue');
+                        border-radius: 5px;
+
+                        .button {
+                            background-color: stencilColor('color-blue');
+                            color: stencilColor('color-white');
+                            border-radius: 30px;
+                            border: 1px solid stencilColor('color-blue');
+                            transition: all .3s ease-in-out;
+
+                            &:hover,
+                            &:focus {
+                                background-color: stencilColor('color-white');
+                                color: stencilColor('color-blue');
+                            }
+
+                            &+.button {
+                                border: 1px solid stencilColor('color-blue');
+                                color: stencilColor('color-blue');
+                                background-color: stencilColor('color-white');
+                                border-radius: 30px;
+
+                                &:hover,
+                                &:focus {
+                                    background-color: stencilColor('color-greyDarkest');
+                                    border: 1px solid stencilColor('color-greyDarkest');
+                                    color: stencilColor('color-white');
+                                }
+                            }
+                        }
+                    }
+
+                    a.panel--newAddress {
+                        span {
+                            border-radius: 5px;
+                            border-color: stencilColor('color-blue');
+                            color: stencilColor('color-blue');
+                        }
+                    }
+                }
+            }
+
+            div.account-body {
+                input.button {
+                    background-color: stencilColor('color-blue');
+                    color: stencilColor('color-white');
+                    border-radius: 30px;
+                    border: 1px solid stencilColor('color-blue');
+                    transition: all .3s ease-in-out;
+
+                    &:hover,
+                    &:focus {
+                        background-color: stencilColor('color-white');
+                        color: stencilColor('color-blue');
+                    }
+
+                    &+a.button {
+                        border: 1px solid stencilColor('color-blue');
+                        color: stencilColor('color-blue');
+                        background-color: stencilColor('color-white');
+                        border-radius: 30px;
+
+
+                        &:hover,
+                        &:focus {
+                            background-color: stencilColor('color-greyDarkest');
+                            border: 1px solid stencilColor('color-greyDarkest');
+                            color: stencilColor('color-white');
+                        }
+                    }
+                }
+
+            }
+
+            div.alertBox {
+                background-color: stencilColor('color-blue');
+            }
+
+            div.form-actions {
+
+                button.button,
+                a.button {
+                    background-color: stencilColor('color-blue');
+                    color: stencilColor('color-white');
+                    border-radius: 30px;
+                    border: 1px solid stencilColor('color-blue');
+                    transition: all .3s ease-in-out;
+
+                    &:hover,
+                    &:focus {
+                        background-color: stencilColor('color-white');
+                        color: stencilColor('color-blue');
+                    }
+                }
+            }
+        }
+    }
+}

@@ -86,8 +86,8 @@ section.subscriptionSection[data-section-type="newsletterSubscription"] {
                                 text-transform: uppercase;
                                 font-size: remCalc(16px);
                                 color: stencilColor('color-white');
-                                background-color: stencilColor('color-blue');
-                                border: 3px solid stencilColor('color-blue');
+                                background-color: stencilColor('color-greyDarkest');
+                                border: 3px solid stencilColor('color-greyDarkest');
                                 transition: all .3s ease-in-out;
 
                                 &:hover,

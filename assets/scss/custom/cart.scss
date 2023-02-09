@@ -1,0 +1,33 @@
+main#main-content.pages-cart {
+    div.cart-actions.cart-content-padding-right {
+        .button {
+            background-color: stencilColor('color-blue');
+            border-radius: 30px;
+            border: 1px solid stencilColor('color-blue');
+            transition: all .3s ease-in-out;
+
+            &:hover,
+            &:focus {
+                background-color: stencilColor('color-white');
+                color: stencilColor('color-blue');
+            }
+        }
+    }
+    ul.cart-totals {
+        li.cart-total {
+            .button {
+                background-color: stencilColor('color-blue');
+                border-radius: 30px;
+                border: 1px solid stencilColor('color-blue');
+                transition: all .3s ease-in-out;
+        
+                &:hover,
+                &:focus {
+                    background-color: stencilColor('color-white');
+                    color: stencilColor('color-blue');
+                }
+            }
+
+        }
+    }
+}

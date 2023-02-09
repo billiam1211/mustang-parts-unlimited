@@ -30,5 +30,8 @@
         <li class="navBar-item {{#if account_page '===' 'settings'}}is-active{{/if}}">
             <a class="navBar-action" href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
         </li>
+        <li class="navBar-item">
+            <a href="{{urls.auth.logout}}" class="navBar-action">{{lang 'account.nav.logout'}}</a>
+        </li>
     </ul>
 </nav>

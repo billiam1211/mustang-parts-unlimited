@@ -1,0 +1,17 @@
+main#main-content {
+    &.pages-auth-login,
+    &.pages-auth-account-created {
+        .button {
+            background-color: stencilColor('color-blue');
+            border-radius: 30px;
+            border: 1px solid stencilColor('color-blue');
+            transition: all .3s ease-in-out;
+
+            &:hover,
+            &:focus {
+                background-color: stencilColor('color-white');
+                color: stencilColor('color-blue');
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.breadcrumbs-navigation {
+    .breadcrumbs {
+        .breadcrumb {
+            a.breadcrumb-label {
+                color: stencilColor('color-greyDarker');
+                text-decoration: none;
+            }
+
+            &.is-active {
+                a.breadcrumb-label {
+                    color: stencilColor('color-blue');
+                }
+            }
+        }
+    }
+}

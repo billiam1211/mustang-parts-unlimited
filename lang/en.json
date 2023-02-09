@@ -289,6 +289,7 @@
     "account": {
         "breadcrumb": "Your Account",
         "nav": {
+            "logout": "Sign Out",
             "overview": "Overview",
             "orders": "Orders",
             "returns": "Returns",

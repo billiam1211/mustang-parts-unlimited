@@ -1,0 +1,56 @@
+main#main-content {
+    &.pages-product {
+        div.container {
+            max-width: 1440px;
+
+            @include breakpoint('medium') {
+                padding: 0 20px;
+            }
+
+            div.productView {
+                section.productView-details {
+                    &.product-options {
+                        div.productView-options {
+                            div.add-to-cart-buttons {
+
+                                input#form-action-addToCart {
+                                    background-color: stencilColor('color-blue');
+                                    border-radius: 30px;
+                                    border: 1px solid stencilColor('color-blue');
+                                    transition: all .3s ease-in-out;
+                                    
+                                    &:hover,
+                                    &:focus {
+                                        background-color: stencilColor('color-white');
+                                        color: stencilColor('color-blue');
+                                    }
+                                }
+                            }
+                            
+                            form.form-wishlist {
+                                a[data-dropdown=wishlist-dropdown] {
+                                    background-color: stencilColor('color-white');
+                                    border: 1px solid stencilColor('color-blue');
+                                    border-radius: 30px;
+                                    color: stencilColor('color-blue');
+                                    transition: all .3s ease-in-out;
+                                    
+                                    &:hover,
+                                    &:focus {
+                                        background-color: stencilColor('color-greyDarkest');
+                                        color: stencilColor('color-white');
+                                        border: 1px solid stencilColor('color-greyDarkest');
+
+                                        svg {
+                                            fill: stencilColor('color-white');
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
