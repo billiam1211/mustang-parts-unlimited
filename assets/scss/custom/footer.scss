@@ -3,6 +3,7 @@ section.subscriptionSection[data-section-type="newsletterSubscription"] {
     background-color: stencilColor('color-blue');
     padding: 0 20px 2.5rem 20px;
     background-image: linear-gradient(stencilColor('color-greyDarkest') 5%, stencilColor('color-blue') 50%, stencilColor('color-greyDarkest') 95%);
+    margin-top: 30px;
 
     @include breakpoint('medium') {
         padding: 1.5rem 20px;
@@ -10,7 +11,7 @@ section.subscriptionSection[data-section-type="newsletterSubscription"] {
 
     @include breakpoint('large') {
         width: 100%;
-        margin: 0;
+        margin: 50px 0 0 0;
     }
 
     div.subscription-container {
@@ -86,14 +87,14 @@ section.subscriptionSection[data-section-type="newsletterSubscription"] {
                                 text-transform: uppercase;
                                 font-size: remCalc(16px);
                                 color: stencilColor('color-white');
-                                background-color: stencilColor('color-greyDarkest');
-                                border: 3px solid stencilColor('color-greyDarkest');
+                                background-color: stencilColor('color-blue');
+                                border: 1px solid stencilColor('color-white');
                                 transition: all .3s ease-in-out;
 
                                 &:hover,
                                 &:focus {
                                     background-color: stencilColor('color-white');
-                                    border: 3px solid stencilColor('color-blue');
+                                    border: 1px solid stencilColor('color-blue');
                                     color: stencilColor('color-blue');
                                     box-shadow: 2px 2px 10px stencilColor('color-greyDarkest');
                                 }

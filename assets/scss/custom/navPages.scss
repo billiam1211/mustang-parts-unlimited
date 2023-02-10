@@ -145,12 +145,12 @@ nav.navPages {
                             margin: 0;
                             max-width: initial;
 
+                            @include breakpoint('medium') {
+                                padding: 0;
+                            }
+
                             li.navPage-subMenu-item {
                                 padding: 0;
-
-                                @include breakpoint('medium') {
-                                    margin-bottom: 1.5rem;
-                                }
 
                                 &.view-all {
                                     display: none;
@@ -166,6 +166,11 @@ nav.navPages {
                                         font-size: remCalc(18px);
                                         padding: 0;
                                         border: none;
+
+                                        @include breakpoint('medium') {
+                                            padding: .5rem 0;
+                                            margin: 0;
+                                        }
 
                                         &:hover,
                                         &:focus {

@@ -1,0 +1,120 @@
+div.featuredCategory {
+    background-color: stencilColor('color-white');
+    margin: 30px auto;
+    text-align: center;
+
+    @include breakpoint('medium') {
+        margin: 50px auto;
+    }
+
+    h2.featuredCategory-title {
+        display: inline;
+        text-align: center;
+        margin: 0;
+        font-size: remCalc(24px);
+        padding: 0 0 1rem 0;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0) scale(0);
+            height: 3px;
+            width: 100%;
+            background-color: stencilColor('color-blue');
+            transition: all .5s ease-in-out;
+        }
+
+        &.loaded {
+            &::before {
+                transform: translate(-50%, 0) scale(.75);
+            }
+        }
+
+        @include breakpoint('medium') {
+            font-size: remCalc(30px);
+        }
+    }
+
+    ul.featuredCategory-list {
+        margin: 0 auto;
+        padding: 30px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        list-style: none;
+        max-width: 1440px;
+
+        li.featuredCategory-item {
+            list-style: none;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem;
+
+            @include breakpoint('small') {
+                width: 50%;
+            }
+
+            @include breakpoint('medium') {
+                width: 33.33%;
+            }
+
+            @include breakpoint('large') {
+                width: 20%;
+            }
+
+            div.featuredCategory-container {
+                border: 1px solid stencilColor('color-greyDark');
+                padding: 10px;
+                border-radius: 5px;
+                background-color: stencilColor('color-white');
+                transition: all .3s ease-in-out;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                &:hover,
+                &:focus {
+                    box-shadow: 2px 4px 10px stencilColor('color-greyLight');
+                }
+
+                div.featuredCategory-image {
+                    flex-grow: 1;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain;
+                        border-radius: 5px;
+                    }
+                }
+
+                div.featuredCategory-content {
+                    text-align: center;
+                    margin-top: 1rem;
+
+                    a {
+                        text-decoration: none;
+                        color: stencilColor('color-greyDarkest');
+                        font-size: remCalc(20px);
+                    }
+                }
+            }
+        }
+
+        &.slick-slider {
+            width: 100%;
+
+            .slick-list {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+}

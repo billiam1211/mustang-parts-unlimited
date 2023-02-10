@@ -88,8 +88,14 @@ div.splitBanner {
                 text-transform: uppercase;
                 transition: all .3s ease-in-out;
 
+                @include breakpoint('small') {
+                    max-width: 200px;
+                    margin: 0;
+                    padding: 1rem 2rem;
+                }
+
                 @include breakpoint('medium') {
-                    font-size: remCalc(18px)
+                    font-size: remCalc(18px);
                 }
 
                 &:hover,

@@ -401,9 +401,8 @@ header.checkoutHeader {
         li.checkout-step {
             div.stepHeader {
                 div.stepHeader-figure {
-
                     div.icon {
-                        background-color: #0D04CA;
+                        background-color: stencilColor('color-blue');
                     }
                 }
             }
