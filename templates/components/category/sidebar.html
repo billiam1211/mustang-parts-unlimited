@@ -1,11 +1,11 @@
 <nav>
     {{#if category.subcategories}}
-        <div class="sidebarBlock">
-            <h2 class="sidebarBlock-heading">{{category.name}}</h2>
-            <ul class="navList">
+        <div class="sidebarBlock categoryFilter">
+            <h2 class="sidebarBlock-heading categoryFilter-heading">{{lang 'category.refine_search'}}</h2>
+            <ul class="navList categoryFilter-list">
                 {{#each category.subcategories}}
-                <li class="navList-item">
-                    <a class="navList-action" href="{{url}}" title="{{name}}">{{name}}</a>
+                <li class="navList-item categoryFilter-item">
+                    <a class="navList-action categoryFilter-action" href="{{url}}" title="{{name}}">{{name}}</a>
                 </li>
                 {{/each}}
             </ul>

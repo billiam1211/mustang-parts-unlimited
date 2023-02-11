@@ -1,0 +1,55 @@
+main.pages-category {
+    aside.page-sidebar#faceted-search-container {
+        @media (min-width: 1024px) {
+            width: 30%;
+            padding-right: 2rem;
+        }
+
+        div.categoryFilter {
+            h2.categoryFilter-heading {
+                color: stencilColor('color-greyDarkest');
+                font-size: remCalc(20px);
+                font-weight: 900;
+            }
+
+            ul.categoryFilter-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                li.categoryFilter-item {
+                    background-color: stencilColor('color-white');
+                    width: 100%;
+                    border-top: 1px solid stencilColor('color-greyLighter');
+                    transition: all .3s ease-in-out;
+
+                    &:last-child {
+                        border-bottom: 1px solid stencilColor('color-greyLighter');
+                    }
+
+                    &:hover,
+                    &:focus {
+                        background-color: stencilColor('color-blue');
+                        border-color: stencilColor('color-blue');
+
+                        a.categoryFilter-action {
+                            color: stencilColor('color-white');
+                        }
+                    }
+
+                    a.categoryFilter-action {
+                        font-size: remCalc(18px);
+                        padding: .75rem 1rem;
+                        color: stencilColor('color-greyDarkest');
+                    }
+                }
+            }
+        }
+    }
+
+    div.page-content#product-listing-container {
+        @media (min-width: 1024px) {
+            width: 70%;
+        }
+    }
+}

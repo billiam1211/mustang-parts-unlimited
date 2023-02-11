@@ -1,9 +1,9 @@
 div.splitBanner {
-    background-image: linear-gradient(stencilColor('color-white'), stencilColor('color-greyDarkest') 50%);
+    // background-image: linear-gradient(stencilColor('color-white'), stencilColor('color-greyDarkest') 50%);
     margin: 30px auto;
 
     @include breakpoint('medium') {
-        background-image: linear-gradient(to right, stencilColor('color-white'), stencilColor('color-greyDarkest') 40%);
+        // background-image: linear-gradient(to right, stencilColor('color-white'), stencilColor('color-greyDarkest') 40%);
         margin: 50px auto;
     }
 
@@ -14,13 +14,16 @@ div.splitBanner {
         flex-wrap: wrap;
         justify-content: flex-end;
         position: relative;
+        padding-top: 50px;
 
         @include breakpoint('medium') {
             min-height: 500px;
+            padding-top: 0;
         }
 
         div.splitBanner-image {
             width: 100%;
+            padding: 1rem;
 
             @include breakpoint('medium') {
                 position: absolute;
@@ -29,6 +32,10 @@ div.splitBanner {
                 transform: translate(0, -50%);
                 height: 100%;
                 width: 50%;
+            }
+
+            @media (min-width: 1440px) {
+                padding: 0;
             }
 
             img {
@@ -43,7 +50,7 @@ div.splitBanner {
 
         div.splitBanner-content {
             width: 100%;
-            background-color: stencilColor('color-greyDarkest');
+            // background-color: stencilColor('color-greyDarkest');
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -62,7 +69,7 @@ div.splitBanner {
             }
 
             h2.splitBanner-heading {
-                color: stencilColor('color-white');
+                // color: stencilColor('color-white');
                 font-size: remCalc(24px);
 
                 @include breakpoint('medium') {
@@ -71,16 +78,16 @@ div.splitBanner {
             }
 
             p.splitBanner-text {
-                color: stencilColor('color-white');
+                // color: stencilColor('color-white');
                 font-size: remCalc(16px);
 
             }
 
             a.splitBanner-action {
-                background-color: stencilColor('color-white');
-                border: 1px solid stencilColor('color-white');
+                // background-color: stencilColor('color-white');
+                // border: 1px solid stencilColor('color-white');
                 padding: 1rem;
-                color: stencilColor('color-greyDarker');
+                // color: stencilColor('color-greyDarker');
                 border-radius: 30px;
                 text-align: center;
                 text-decoration: none;
@@ -100,10 +107,10 @@ div.splitBanner {
 
                 &:hover,
                 &:focus {
-                    border: 1px solid stencilColor('color-blue');
-                    background-color: stencilColor('color-blue');
-                    color: stencilColor('color-white');
-                    box-shadow: 2px 2px 15px #FFF;
+                    // border: 1px solid stencilColor('color-blue');
+                    // background-color: stencilColor('color-blue');
+                    // color: stencilColor('color-white');
+                    // box-shadow: 2px 2px 15px #FFF;
                 }
             }
         }
@@ -112,7 +119,7 @@ div.splitBanner {
     &.reversed {
 
         @include breakpoint('medium') {
-            background-image: linear-gradient(to left, stencilColor('color-white'), stencilColor('color-greyDarkest') 40%);
+            // background-image: linear-gradient(to left, stencilColor('color-white'), stencilColor('color-greyDarkest') 40%);
 
         }
 
