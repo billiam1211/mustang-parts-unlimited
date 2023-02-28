@@ -1,8 +1,123 @@
 section.heroCarousel {
+    &.slick-initialized {
+        max-height: initial;
+    }
+
     div.heroCarousel-slide {
-        div.heroCarousel-image-wrapper {
-            img {
+        .heroCarousel-image-wrapper {
+            img.heroCarousel-image {
                 object-fit: cover;
+            }
+        }
+
+        div.heroCarousel-content {
+            background-color: stencilColor('color-greyDarkest');
+            padding: 2rem 0;
+
+            @include breakpoint('small') {
+                position: static;
+                transform: initial;
+                width: 100%;
+                max-height: initial;
+            }
+
+            @include breakpoint('medium') {
+                position: absolute;
+                text-align: left;
+                overflow: initial;
+                top: 50%;
+                left: 5%;
+                background-color: transparent;
+                transform: translate(0%, -50%);
+                right: initial;
+                max-height: initial;
+                width: auto;
+                height: auto;
+                padding: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-width: 50%;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: rgba(0, 0, 0, .66);
+                    border: 1px solid rgba(255, 255, 255, .35);
+                    backdrop-filter: blur(5px);
+                    height: 100%;
+                    width: 100%;
+                    z-index: -1;
+                    border-radius: 0 50px 0 50px;
+                }
+
+                @include breakpoint('large') {
+                    padding: 4rem;
+                }
+            }
+
+
+            .heroCarousel-title {
+                color: stencilColor('color-white');
+                font-weight: 900;
+                font-size: remCalc(24px);
+                font-family: stencilFontFamily('headings-font');
+
+                @include breakpoint('small') {
+                    font-size: remCalc(28px);
+                }
+
+                @include breakpoint('medium') {
+
+                    font-size: remCalc(36px);
+                    margin: 0 0 10px 0;
+                }
+
+                @include breakpoint('large') {
+                    margin-bottom: 1rem;
+                    font-size: remCalc(40px);
+                }
+            }
+
+            .heroCarousel-description {
+                color: stencilColor('color-white');
+                font-size: remCalc(14px);
+
+                @include breakpoint('small') {
+                    font-size: remCalc(16px);
+                }
+
+                @include breakpoint('medium') {
+
+                    margin: 0 0 10px 0pc;
+                    font-size: remCalc(18px);
+                }
+            }
+
+            .heroCarousel-action {
+                background-color: stencilColor('color-blue');
+                border: 1px solid stencilColor('color-blue');
+                border-radius: 30px;
+                transition: all .3s ease-in-out;
+                font-size: remCalc(14px);
+
+                @include breakpoint('small') {
+                    font-size: remCalc(16px);
+                    max-width: 200px;
+                    margin: 1.5rem 0;
+                }
+
+                @include breakpoint('medium') {
+                    margin: 0;
+                }
+
+                &:hover,
+                &:focus {
+                    background-image: linear-gradient(315deg, stencilColor('color-greyDarkest') 10%, stencilColor('color-blue') 50%, stencilColor('color-greyDarkest') 90%);
+                }
             }
         }
     }

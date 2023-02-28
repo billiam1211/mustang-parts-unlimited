@@ -1,4 +1,108 @@
-main.pages-category {
+body main.pages-category {
+    margin-top: 46px;
+
+    @include breakpoint('medium') {
+        margin: 0;
+    }
+
+    div.container {
+        max-width: initial;
+        padding: 0;
+
+        div.categoryHeading {
+            background-color: stencilColor('color-greyDarkest');
+            min-height: 100px;
+            margin-bottom: 75px;
+            position: relative;
+
+            @include breakpoint('medium') {
+                min-height: 150px;
+            }
+
+            .page-heading {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: stencilColor('color-white');
+                font-size: remCalc(36px);
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) skewX(-30deg);
+                    background-color: stencilColor('color-greyDarkest');
+                    backdrop-filter: blur(10px);
+                    border: 5px solid stencilColor('color-white');
+                    height: 125%;
+                    width: 155%;
+                    z-index: -1;
+
+                }
+            }
+        }
+
+        div.categoryBanner {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-bottom: 100px;
+
+            div.categoryBanner-image {
+                height: 100%;
+                width: 100%;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: rgba(0, 0, 0, .33);
+                    height: 100%;
+                    width: 100%;
+                }
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    max-height: 400px;
+                }
+            }
+
+            div.categoryBanner-content {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -25%);
+
+                .page-heading {
+                    color: stencilColor('color-white');
+                    font-size: remCalc(36px);
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) skewX(-30deg);
+                        background-color: stencilColor('color-greyDarkest');
+                        backdrop-filter: blur(10px);
+                        border: 5px solid stencilColor('color-white');
+                        height: 125%;
+                        width: 155%;
+                        z-index: -1;
+
+                    }
+                }
+            }
+        }
+    }
+
     aside.page-sidebar#faceted-search-container {
         @media (min-width: 1024px) {
             width: 30%;
@@ -48,9 +152,15 @@ main.pages-category {
         }
     }
 
-    div.page-content#product-listing-container {
-        @media (min-width: 1024px) {
-            width: 70%;
+    div.page {
+        max-width: 1440px;
+        margin: 0 auto;
+
+        div.page-content#product-listing-container {
+            @media (min-width: 1024px) {
+                width: 70%;
+            }
         }
     }
+
 }

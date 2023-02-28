@@ -41,6 +41,7 @@ nav.navPages {
             a.navPages-action {
                 transition: all .3s ease-in-out;
                 padding: 1rem 1.5rem;
+                font-family: stencilFontFamily('headings-font');
 
                 @include breakpoint('medium') {
                     white-space: nowrap;
