@@ -11,12 +11,12 @@ body main.pages-category {
 
         div.categoryHeading {
             background-color: stencilColor('color-greyDarkest');
-            min-height: 100px;
+            min-height: 50px;
             margin-bottom: 75px;
             position: relative;
 
             @include breakpoint('medium') {
-                min-height: 150px;
+                min-height: 100px;
             }
 
             .page-heading {
@@ -25,7 +25,16 @@ body main.pages-category {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 color: stencilColor('color-white');
-                font-size: remCalc(36px);
+                font-size: remCalc(20px);
+                padding: .5rem;
+
+                @include breakpoint('small') {
+                    font-size: remCalc(24px);
+                }
+
+                @include breakpoint('medium') {
+                    font-size: remCalc(36px);
+                }
 
                 &::after {
                     content: '';
@@ -37,8 +46,12 @@ body main.pages-category {
                     backdrop-filter: blur(10px);
                     border: 5px solid stencilColor('color-white');
                     height: 125%;
-                    width: 155%;
+                    width: 125%;
                     z-index: -1;
+
+                    @include breakpoint('medium') {
+                        width: 135%;
+                    }
 
                 }
             }

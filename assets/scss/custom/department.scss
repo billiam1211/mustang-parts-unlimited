@@ -46,8 +46,16 @@ main.body.pages-custom-category-department {
 
                 .page-heading {
                     color: stencilColor('color-white');
-                    font-size: remCalc(36px);
+                    font-size: remCalc(20px);
                     position: relative;
+
+                    @include breakpoint('small') {
+                        font-size: remCalc(24px);
+                    }
+
+                    @include breakpoint('medium') {
+                        font-size: remCalc(36px);
+                    }
 
                     &::after {
                         content: '';
@@ -61,7 +69,6 @@ main.body.pages-custom-category-department {
                         height: 125%;
                         width: 155%;
                         z-index: -1;
-
                     }
                 }
             }
@@ -87,7 +94,7 @@ main.body.pages-custom-category-department {
                         padding: 1rem;
                         display: flex;
                         flex-direction: column;
-                        
+
                         @include breakpoint('small') {
                             width: 50%;
                         }

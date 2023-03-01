@@ -34,7 +34,6 @@ nav.navPages {
 
         li.navPages-item {
             @include breakpoint('medium') {
-                // flex: 1;
                 width: auto;
             }
 
@@ -95,15 +94,14 @@ nav.navPages {
                         position: relative;
 
                         &::before {
-                            // display: block;
+
                             opacity: 1;
-                            // transform: translate(-50%, -50%) skewX(-30deg);
                             animation: slide-in-nav .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
                             @keyframes slide-in-nav {
                                 0% {
                                     opacity: 0;
-                                    transform: translate(-100%, -50%) skewX(-30deg);
+                                    transform: translate(-75%, -50%) skewX(-30deg);
                                 }
 
                                 100% {
@@ -251,7 +249,7 @@ nav.navPages {
                         }
 
                         &.is-open {
-                            animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                            animation: slide-in-bottom 0.35s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
                             @include breakpoint('medium') {
                                 background-color: stencilColor('color-white');
@@ -260,16 +258,16 @@ nav.navPages {
                                 border-bottom: 10px solid stencilColor('color-blue');
                             }
 
-                            @keyframes slide-in-left {
+                            @keyframes slide-in-bottom {
                                 0% {
-                                    -webkit-transform: translatex(-1000px);
-                                    transform: translatex(-1000px);
+
+                                    transform: translateY(100px);
                                     opacity: 0;
                                 }
 
                                 100% {
-                                    -webkit-transform: translatex(0);
-                                    transform: translatex(0);
+
+                                    transform: translateY(0);
                                     opacity: 1;
                                 }
                             }

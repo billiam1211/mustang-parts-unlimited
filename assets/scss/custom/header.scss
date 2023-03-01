@@ -107,25 +107,25 @@ header.header {
                 top: initial;
                 left: initial;
             }
-            
+
             a.header-logo__link {
                 margin: 0;
                 width: 100%;
-                
+
                 @include breakpoint('medium') {
                     height: 100%;
                     width: 100%;
                     display: block;
                 }
-                
+
                 div.header-logo-image-container {
                     min-height: initial;
                     height: 100%;
-                    
+
                     @include breakpoint('medium') {
                         width: 100%;
                     }
-                    
+
                     img.header-logo-image {
                         max-height: initial;
                         object-fit: contain;
@@ -133,20 +133,15 @@ header.header {
                         height: 100%;
                         transition: all .3s ease-in-out;
                         padding: 1.5rem;
-                        
+
                         @media only screen and (min-width: 801px) {
-                            padding: .5rem;
-                        }
-                        
-                        @include breakpoint('medium') {
-                            margin: 0;
-                            padding: 0;
-                            object-position: left;
-                            max-height: 100px;
+                            padding: 1rem;
                         }
 
-                        @include breakpoint('large') {
-                            padding: 0;
+                        @include breakpoint('medium') {
+                            margin: 0;
+                            object-position: left;
+                            max-height: 100px;
                         }
                     }
                 }
