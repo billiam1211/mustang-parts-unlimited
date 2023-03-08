@@ -140,6 +140,7 @@ header.header {
 
                         @include breakpoint('medium') {
                             margin: 0;
+                            padding: 1.5rem;
                             object-position: left;
                             max-height: 100px;
                         }

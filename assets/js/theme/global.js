@@ -31,6 +31,7 @@ export default class Global extends PageManager {
         this.stickyHeaderManager();
         this.department();
         this.featuredCategories();
+        this.threeColumn();
     }
 
     stickyHeaderManager() {
@@ -168,6 +169,24 @@ export default class Global extends PageManager {
                 ]
             });
             document.querySelector('h2.featuredCategory-title').classList.add('loaded');
+        }
+    }
+
+    threeColumn() {
+        const threeColumn = document.querySelector('div.threeColumn');
+        if (threeColumn !== null) {
+            const items = document.querySelectorAll('li.threeColumn-item');
+            this.equalHeights('li.threeColumn-item');
+            items.forEach((item, index) => {
+                item.addEventListener('mouseover', (e) => {
+                    items.forEach((item, index) => {
+                        if (item.classList.contains('is-active')) {
+                            item.classList.remove('is-active');
+                        }
+                    });
+                    item.classList.add('is-active');
+                });
+            });
         }
     }
 }

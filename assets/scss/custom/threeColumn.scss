@@ -1,0 +1,150 @@
+div.threeColumn {
+    max-width: 1440px;
+    margin: 50px auto;
+    text-align: center;
+
+    h2.threeColumn-heading {
+        font-size: remCalc(30px);
+        margin: 0 0 1.5rem 0;
+        padding: 0 0 .5rem 0;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%) skewX(-30deg);
+            height: 5px;
+            width: 150%;
+            background-color: stencilColor('color-blue');
+        }
+
+        @include breakpoint('medium') {
+            font-size: remCalc(36px);
+        }
+
+        @include breakpoint('large') {
+            font-size: remCalc(40px);
+        }
+    }
+
+    ul.threeColumn-list {
+        margin: 1rem 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        justify-content: space-between;
+
+        li.threeColumn-item {
+            list-style: none;
+            margin: 0 0 10px 0;
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            padding: 5px;
+            transition: all .5s ease-in-out;
+
+            div.threeColumn-content {
+                position: relative;
+                width: 100%;
+                background-color: transparent;
+
+                a {
+                    width: 100%;
+
+                    div.threeColumn-filter {
+                        height: 100%;
+                        position: relative;
+                        width: 100%;
+
+                        &::after {
+                            content: "";
+                            background-color: rgba(0, 0, 0, .8);
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            height: 100%;
+                            width: 100%;
+                            z-index: 1;
+
+                        }
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+
+                        }
+                    }
+                }
+
+                .threeColumn-action {
+                    position: absolute;
+                    bottom: 0%;
+                    left: 50%;
+                    transform: translate(-50%, 0%);
+                    color: stencilColor('color-white');
+                    font-size: remCalc(16px);
+                    background-color: stencilColor('color-blue');
+                    padding: 1rem;
+                    padding: 1rem 2.5rem;
+                    text-decoration: none;
+                    height: auto;
+                    opacity: 0;
+                    transition: all .3s ease-in-out;
+                    display: none;
+
+                    @include breakpoint('small') {
+                        font-size: remCalc(18px);
+                    }
+
+                    @include breakpoint('medium') {
+                        font-size: remCalc(20px);
+                    }
+                }
+
+            }
+
+            &.is-active {
+                flex: 1.5;
+
+                div.threeColumn-content {
+                    a {
+                        div.threeColumn-filter {
+                            &::after {
+                                background-color: rgba(0, 0, 0, .33);
+                                border: 5px solid stencilColor('color-blue');
+                            }
+                        }
+                    }
+
+                    a.threeColumn-action {
+                        opacity: 1;
+                        width: 100%;
+                        z-index: 9;
+                        display: block;
+
+                        &:hover,
+                        &:focus {
+                            background-color: stencilColor('color-greyDarkest');
+                            color: stencilColor('color-white');
+
+                            &+a {
+                                div.threeColumn-filter {
+                                    &::after {
+                                        border: 5px solid stencilColor('color-greyDarkest');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -33,7 +33,7 @@ body main.pages-category {
                 }
 
                 @include breakpoint('medium') {
-                    font-size: remCalc(36px);
+                    font-size: remCalc(30px);
                 }
 
                 &::after {
@@ -51,6 +51,7 @@ body main.pages-category {
 
                     @include breakpoint('medium') {
                         width: 135%;
+                        min-width: 200px;
                     }
 
                 }
