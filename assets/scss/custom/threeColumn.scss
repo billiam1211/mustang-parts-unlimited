@@ -47,19 +47,35 @@ div.threeColumn {
             flex: 1;
             padding: 5px;
             transition: all .5s ease-in-out;
+            height: 250px;
+
+            @include breakpoint('small') {
+                height: 300px;
+            }
+
+            @include breakpoint('medium') {
+                height: 500px;
+            }
+
+            @include breakpoint('large') {
+                height: 600px;
+            }
 
             div.threeColumn-content {
                 position: relative;
                 width: 100%;
+                height: 100%;
                 background-color: transparent;
 
                 a {
                     width: 100%;
+                    height: 100%;
 
                     div.threeColumn-filter {
-                        height: 100%;
                         position: relative;
+                        height: 100%;
                         width: 100%;
+                        background-color: transparent;
 
                         &::after {
                             content: "";
@@ -78,7 +94,10 @@ div.threeColumn {
                             height: 100%;
                             width: 100%;
                             object-fit: cover;
-
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
                         }
                     }
                 }
@@ -111,13 +130,31 @@ div.threeColumn {
             }
 
             &.is-active {
-                flex: 1.5;
+                flex: 4;
+
+                @media (min-width: '400px') {
+                    flex: 3;
+                }
+
+                @include breakpoint('small') {
+                    flex: 2.5;
+                }
+
+                @media (min-width: '801px') {
+                    flex: 2;
+                }
+
+                @include breakpoint('medium') {
+                    flex: 1.5;
+                }
 
                 div.threeColumn-content {
+                    background-color: stencilColor('color-blue');
+
                     a {
                         div.threeColumn-filter {
                             &::after {
-                                background-color: rgba(0, 0, 0, .33);
+                                background-color: rgba(0, 0, 0, .2);
                                 border: 5px solid stencilColor('color-blue');
                             }
                         }

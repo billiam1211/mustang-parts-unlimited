@@ -1,9 +1,7 @@
 div.splitBanner {
-    // background-image: linear-gradient(stencilColor('color-white'), stencilColor('color-greyDarkest') 50%);
     margin: 30px auto;
 
     @include breakpoint('medium') {
-        // background-image: linear-gradient(to right, stencilColor('color-white'), stencilColor('color-greyDarkest') 40%);
         margin: 50px auto;
     }
 
@@ -14,16 +12,15 @@ div.splitBanner {
         flex-wrap: wrap;
         justify-content: flex-end;
         position: relative;
-        padding-top: 50px;
 
         @include breakpoint('medium') {
+            padding-top: 50px;
             min-height: 500px;
             padding-top: 0;
         }
 
         div.splitBanner-image {
             width: 100%;
-            padding: 1rem;
 
             @include breakpoint('medium') {
                 position: absolute;
@@ -50,11 +47,10 @@ div.splitBanner {
 
         div.splitBanner-content {
             width: 100%;
-            // background-color: stencilColor('color-greyDarkest');
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 1.5rem 1.5rem 5rem 1.5rem;
+            padding: 1.5rem 2.5rem 5rem 2.5rem;
 
             @include breakpoint('medium') {
                 width: 60%;

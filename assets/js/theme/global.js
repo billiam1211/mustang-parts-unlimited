@@ -173,10 +173,19 @@ export default class Global extends PageManager {
     }
 
     threeColumn() {
+        console.log('init three column widget', );
         const threeColumn = document.querySelector('div.threeColumn');
         if (threeColumn !== null) {
             const items = document.querySelectorAll('li.threeColumn-item');
-            this.equalHeights('li.threeColumn-item');
+            let minHeight = 0;
+
+            for (let index = 0; index < document.querySelectorAll('li.threeColumn-item').length; index++) {
+                const item = document.querySelectorAll('li.threeColumn-item')[index];
+                if (item.offsetHeight > minHeight) {
+                    minHeight = item.offsetHeight;
+                }
+            }
+            document.querySelector('ul.threeColumn-list').style.minHeight = `${minHeight}px`;
             items.forEach((item, index) => {
                 item.addEventListener('mouseover', (e) => {
                     items.forEach((item, index) => {
