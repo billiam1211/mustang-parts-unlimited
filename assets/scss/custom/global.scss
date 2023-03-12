@@ -9,6 +9,10 @@ body {
 
         &.pages-home {
             margin-bottom: 0;
+            margin-top: 45px;
+            @include breakpoint('medium') {
+                margin-top: 0;
+            }
 
             div.container {
                 max-width: initial;

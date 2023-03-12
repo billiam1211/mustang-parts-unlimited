@@ -1,18 +1,30 @@
-section.heroCarousel {
+section.heroBanner {
+    position: relative;
+
     &.slick-initialized {
         max-height: initial;
     }
 
-    div.heroCarousel-slide {
-        .heroCarousel-image-wrapper {
-            img.heroCarousel-image {
+    div.heroBanner-slide {
+        .heroBanner-image-wrapper {
+            img.heroBanner-image {
                 object-fit: cover;
+                width: 100%;
+                max-height: 300px;
+
+                @include breakpoint('small') {
+                    max-height: 400px;
+                }
+
+                @include breakpoint('medium') {
+                    max-height: 600px;
+                }
             }
         }
 
-        div.heroCarousel-content {
+        div.heroBanner-content {
             background-color: stencilColor('color-greyDarkest');
-            padding: 2rem 0;
+            padding: 2rem;
 
             @include breakpoint('small') {
                 position: static;
@@ -38,21 +50,9 @@ section.heroCarousel {
                 flex-direction: column;
                 justify-content: center;
                 max-width: 50%;
-
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: rgba(0, 0, 0, .66);
-                    border: 1px solid rgba(255, 255, 255, .35);
-                    backdrop-filter: blur(5px);
-                    height: 100%;
-                    width: 100%;
-                    z-index: -1;
-                    border-radius: 0 50px 0 50px;
-                }
+                border-radius: 0 50px 0 50px;
+                border: 1px solid rgba(255, 255, 255, .35);
+                backdrop-filter: blur(5px);
 
                 @include breakpoint('large') {
                     padding: 4rem;
@@ -60,7 +60,7 @@ section.heroCarousel {
             }
 
 
-            .heroCarousel-title {
+            .heroBanner-title {
                 color: stencilColor('color-white');
                 font-weight: 900;
                 font-size: remCalc(24px);
@@ -82,7 +82,7 @@ section.heroCarousel {
                 }
             }
 
-            .heroCarousel-description {
+            .heroBanner-description {
                 color: stencilColor('color-white');
                 font-size: remCalc(14px);
 
@@ -97,12 +97,17 @@ section.heroCarousel {
                 }
             }
 
-            .heroCarousel-action {
+            .heroBanner-action {
+                display: inline-block;
                 background-color: stencilColor('color-blue');
                 border: 1px solid stencilColor('color-blue');
                 border-radius: 30px;
                 transition: all .3s ease-in-out;
                 font-size: remCalc(14px);
+                color: stencilColor('color-white');
+                text-decoration: none;
+                padding: 10px 2rem;
+                text-align: center;
 
                 @include breakpoint('small') {
                     font-size: remCalc(16px);
@@ -111,12 +116,37 @@ section.heroCarousel {
                 }
 
                 @include breakpoint('medium') {
-                    margin: 0;
+                    margin: 1rem 0 0 0;
                 }
 
                 &:hover,
                 &:focus {
-                    background-image: linear-gradient(315deg, stencilColor('color-greyDarkest') 10%, stencilColor('color-blue') 50%, stencilColor('color-greyDarkest') 90%);
+                    background-color: stencilColor('color-greyDarkest');
+                }
+            }
+        }
+    }
+
+    &.alignment-center {
+        div.heroBanner-slide {
+            div.heroBanner-content {
+
+                @include breakpoint('medium') {
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+
+    &.alignment-right {
+        div.heroBanner-slide {
+            div.heroBanner-content {
+
+                @include breakpoint('medium') {
+                    left: initial;
+                    right: 5%;
+                    transform: translate(0%, -50%);
                 }
             }
         }
