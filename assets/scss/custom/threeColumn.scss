@@ -1,6 +1,6 @@
 div.threeColumn {
     max-width: 1440px;
-    margin: 50px auto;
+    margin: 20px auto;
     text-align: center;
 
     h2.threeColumn-heading {
@@ -18,7 +18,7 @@ div.threeColumn {
             left: 50%;
             transform: translate(-50%, -50%) skewX(-30deg);
             height: 5px;
-            width: 150%;
+            width: 120%;
             background-color: stencilColor('color-blue');
         }
 
@@ -31,8 +31,17 @@ div.threeColumn {
         }
     }
 
+    p.threeColumn-description {
+        margin: 0;
+        font-size: remCalc(18px);
+
+        @include breakpoint('medium') {
+            font-size: remCalc(20px);
+        }
+    }
+
     ul.threeColumn-list {
-        margin: 1rem 0;
+        margin: 1.5rem 0;
         list-style: none;
         display: flex;
         flex-wrap: wrap;
@@ -130,15 +139,7 @@ div.threeColumn {
             }
 
             &.is-active {
-                flex: 4;
-
-                @media (min-width: '400px') {
-                    flex: 3;
-                }
-
-                @include breakpoint('small') {
-                    flex: 2.5;
-                }
+                flex: 2.5;
 
                 @media (min-width: '801px') {
                     flex: 2;
@@ -156,6 +157,24 @@ div.threeColumn {
                             &::after {
                                 background-color: rgba(0, 0, 0, .2);
                                 border: 5px solid stencilColor('color-blue');
+                            }
+                        }
+
+                        &+a {
+                            animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+                            @keyframes scale-in-center {
+                                0% {
+                                    pointer-events: none;
+                                    transform: scale(0);
+                                    opacity: 0;
+                                }
+
+                                100% {
+                                    pointer-events: initial;
+                                    transform: scale(1);
+                                    opacity: 1;
+                                }
                             }
                         }
                     }

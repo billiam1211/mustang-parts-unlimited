@@ -9,7 +9,8 @@ body {
 
         &.pages-home {
             margin-bottom: 0;
-            margin-top: 45px;
+            margin-top: 0;
+
             @include breakpoint('medium') {
                 margin-top: 0;
             }

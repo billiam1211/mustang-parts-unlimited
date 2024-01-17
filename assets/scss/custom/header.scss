@@ -11,8 +11,10 @@ header.header {
     }
 
     div.headerContainer {
+        position: relative;
 
         @include breakpoint('medium') {
+            position: static;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -84,10 +86,14 @@ header.header {
             top: 50px;
             left: 55px;
             transform: translate(0%, -50%);
-            width: 50%;
+            width: 40%;
             height: 100%;
             transition: all .3s ease-in-out;
             max-height: 100px;
+
+            @media (min-width: '400px') {
+                width: 50%;
+            }
 
             @include breakpoint('small') {
                 left: 50%;
@@ -179,7 +185,15 @@ header.header {
 
 
     &.is-open {
-        padding-bottom: 0;
+        padding-bottom: 150px;
+        height: 100vh;
+        overflow-y: scroll;
+
+        @include breakpoint('medium') {
+            height: auto;
+            overflow-y: initial;
+            padding-bottom: 0px;
+        }
 
         div.headerContainer {
             &::before {
@@ -229,6 +243,10 @@ header.header {
     &.sticky {
         position: sticky;
         animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+        div[data-content-region=header_top--global] {
+            display: none;
+        }
 
         @keyframes slide-in-top {
             0% {

@@ -51,6 +51,16 @@
                 </i>
             </button>
         </li>
+        <li class="navUser-item navUser-item--contact">
+            <a class="navUser-action"
+                href="tel:{{settings.phone_number}}"
+                aria-label="contact us"
+            >
+                <i class="icon">
+                    <svg><use xlink:href="#icon-phone" /></svg>
+                </i>
+            </a>
+        </li>
         {{#if settings.gift_certificates_enabled}}
             <li class="navUser-item">
                 <a class="navUser-action"

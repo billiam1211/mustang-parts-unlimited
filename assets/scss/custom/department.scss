@@ -9,6 +9,14 @@ main.body.pages-custom-category-department {
         max-width: initial;
         padding: 0;
 
+        h1.departmentHeading {
+            margin-top: 150px;
+
+            @include breakpoint('medium') {
+                margin-top: 50px;
+            }
+        }
+
         div.departmentBanner {
             display: flex;
             flex-direction: column;
@@ -48,6 +56,7 @@ main.body.pages-custom-category-department {
                     color: stencilColor('color-white');
                     font-size: remCalc(20px);
                     position: relative;
+                    margin-top: 20px;
 
                     @include breakpoint('small') {
                         font-size: remCalc(24px);
@@ -55,6 +64,7 @@ main.body.pages-custom-category-department {
 
                     @include breakpoint('medium') {
                         font-size: remCalc(36px);
+                        margin-top: 50px;
                     }
 
                     &::after {

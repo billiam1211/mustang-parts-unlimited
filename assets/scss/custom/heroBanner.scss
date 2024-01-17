@@ -1,6 +1,38 @@
 section.heroBanner {
     position: relative;
 
+    &.small {
+        min-height: 300px;
+    }
+
+    &.medium {
+        min-height: 300px;
+    }
+
+    &.large {
+        min-height: 350px;
+    }
+
+    @media (min-width: '551px') {
+        &.medium {
+            min-height: 400px;
+        }
+
+        &.large {
+            min-height: 450px;
+        }
+    }
+
+    @media (min-width: '801px') {
+        &.medium {
+            min-height: 450px;
+        }
+
+        &.large {
+            min-height: 600px;
+        }
+    }
+
     &.slick-initialized {
         max-height: initial;
     }

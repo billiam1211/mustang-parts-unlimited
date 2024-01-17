@@ -159,7 +159,8 @@ nav.navUser {
                 }
             }
 
-            &.navUser-item--account {
+            &.navUser-item--account,
+            &.navUser-item--contact {
                 display: block;
 
                 @include breakpoint('medium') {
@@ -179,6 +180,17 @@ nav.navUser {
 
                         svg {
                             stroke: stencilColor('color-white');
+                        }
+                    }
+                }
+            }
+
+            &.navUser-item--contact {
+                a.navUser-action {
+                    i.icon {
+                        svg {
+                            stroke: stencilColor('color-blue');
+                            fill: stencilColor('color-white');
                         }
                     }
                 }
