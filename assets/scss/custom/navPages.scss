@@ -249,27 +249,11 @@ nav.navPages {
                         }
 
                         &.is-open {
-                            animation: slide-in-bottom 0.35s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
                             @include breakpoint('medium') {
                                 background-color: stencilColor('color-white');
                                 background-color: rgba(255, 255, 255, .85);
                                 backdrop-filter: blur(5px);
                                 border-bottom: 10px solid stencilColor('color-blue');
-                            }
-
-                            @keyframes slide-in-bottom {
-                                0% {
-
-                                    transform: translateY(100px);
-                                    opacity: 0;
-                                }
-
-                                100% {
-
-                                    transform: translateY(0);
-                                    opacity: 1;
-                                }
                             }
 
                             ul.navPage-subMenu-list {

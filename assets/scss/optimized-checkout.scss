@@ -402,24 +402,33 @@ header.checkoutHeader {
             div.stepHeader {
                 div.stepHeader-figure {
                     div.icon {
-                        background-color: stencilColor('color-blue');
+                        background-color: #0D04CA;
                     }
                 }
+            }
+            
+            &.checkout-step--billing {
+                display: none !important;
+            }
+     
+            [for="sameAsBilling"] {
+                display: none !important;
             }
         }
     }
 }
 
 button.button {
-    background-color: stencilColor('color-blue');
-    color: stencilColor('color-white');
+    background-color: #0D04CA;
+    color: #FFFFFF;
     border-radius: 30px;
-    border: 1px solid stencilColor('color-blue');
+    border: 1px solid #0D04CA;
     transition: all .3s ease-in-out;
-
+    
     &:hover,
     &:focus {
-        background-color: stencilColor('color-white');
-        color: stencilColor('color-blue');
+        border: 1px solid #0D04CA;
+        background-color: #FFFFFF;
+        color: #0D04CA;
     }
 }

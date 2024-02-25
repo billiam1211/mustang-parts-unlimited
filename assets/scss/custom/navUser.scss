@@ -6,7 +6,7 @@ nav.navUser {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 1rem;
+    min-height: initial;
 
     @include breakpoint('small') {
         padding-right: 0;
@@ -23,13 +23,12 @@ nav.navUser {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        flex-grow: 1;
         order: 10;
     }
 
     ul.navUser-section {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
 
         li.navUser-item {
 
@@ -51,6 +50,7 @@ nav.navUser {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                padding: 1rem 1.5rem;
 
                 @include breakpoint('medium') {
                     padding: 1rem;
@@ -87,7 +87,7 @@ nav.navUser {
             }
 
             &.navUser-item--search {
-                display: block;
+                // display: block;
 
                 @include breakpoint('medium') {
                     display: none;
@@ -121,9 +121,9 @@ nav.navUser {
 
                     i.icon {
                         margin: 0;
-                        height: 16px;
-                        width: 16px;
                         display: none;
+                        height: 20px;
+                        width: 20px;
 
                         &.close {
                             display: none;
@@ -170,8 +170,8 @@ nav.navUser {
                 a.navUser-action {
                     i.icon {
                         margin: 0;
-                        height: 16px;
-                        width: 16px;
+                        height: 20px;
+                        width: 20px;
 
                         @media only screen and (min-width: 500px) {
                             height: 24px;
@@ -188,9 +188,10 @@ nav.navUser {
             &.navUser-item--contact {
                 a.navUser-action {
                     i.icon {
+
                         svg {
                             stroke: stencilColor('color-blue');
-                            fill: stencilColor('color-white');
+                            fill: transparent;
                         }
                     }
                 }
@@ -213,8 +214,8 @@ nav.navUser {
 
                         svg {
                             display: block;
-                            height: 16px;
-                            width: 16px;
+                            height: 20px;
+                            width: 20px;
 
                             @media (min-width: '500px') {
                                 height: 24px;
@@ -297,17 +298,15 @@ nav.navUser {
         }
     }
 
-    div.dropdown.dropdown--quickSearch {
-        display: none;
-        position: absolute;
-        top: 100% !important;
-        left: 50%;
-        width: auto;
+    &+div.dropdown.dropdown--quickSearch {
+        // display: none;
+        display: block;
+        width: 100%;
+        position: static;
+        width: 100%;
         margin: 0;
-        padding: 0 0 10px 0;
+        padding: 0;
         background-color: stencilColor('color-white');
-        max-height: calc(100vh - 100px);
-        overflow: scroll;
         border: none;
 
         @include breakpoint('medium') {
@@ -320,7 +319,6 @@ nav.navUser {
             overflow: initial;
             max-height: initial;
             flex: 1;
-            order: -1;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -340,14 +338,14 @@ nav.navUser {
             left: 50%;
             transform: translate(-50%, 0) skewX(-50deg);
             background-image: linear-gradient(to left, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
+            display: none;
 
             @include breakpoint('medium') {
-                display: none;
             }
         }
 
         div.container {
-            padding: 1.5rem;
+            padding: 0 1rem 1rem 1rem;
 
             @include breakpoint('medium') {
                 padding: 0;

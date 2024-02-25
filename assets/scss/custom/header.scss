@@ -12,12 +12,19 @@ header.header {
 
     div.headerContainer {
         position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        background-color: stencilColor('color-white');
+
+        @media (min-width: '801px') {
+            justify-content: flex-end;
+        }
 
         @include breakpoint('medium') {
+            background-color: stencilColor('color-white');
             position: static;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
             justify-content: space-between;
             max-width: 1400px;
             margin: 0 auto;
@@ -29,7 +36,7 @@ header.header {
             height: 10px;
             width: 105%;
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 50%;
             transform: translate(-50%, 0) skewX(-50deg);
             background-image: linear-gradient(to right, stencilColor('color-blue') 45%, stencilColor('color-white') 55%, stencilColor('color-greyDarkest') 65%);
@@ -42,6 +49,9 @@ header.header {
         a.mobileMenu-toggle {
             top: 50px;
             transform: translate(0, -50%);
+            position: relative;
+            top: initial;
+            transform: initial;
 
             @include breakpoint('medium') {
                 display: none;
@@ -56,10 +66,12 @@ header.header {
                 }
 
                 &::before {
+                    top: -7px;
                     width: calc(100% + 5px);
                 }
 
                 &::after {
+                    bottom: -7px;
                     width: calc(100% + 2px);
                 }
             }
@@ -70,9 +82,12 @@ header.header {
 
                     &::before {
                         width: calc(100%);
+                        top: 50%;
                     }
 
                     &::after {
+                        top: 50%;
+                        bottom: initial;
                         width: calc(100%);
                     }
                 }
@@ -80,75 +95,35 @@ header.header {
         }
 
         .header-logo {
-            height: auto;
-            margin: 0;
-            position: absolute;
-            top: 50px;
-            left: 55px;
-            transform: translate(0%, -50%);
-            width: 40%;
-            height: 100%;
-            transition: all .3s ease-in-out;
-            max-height: 100px;
+            order: -1;
+            width: 100%;
 
-            @media (min-width: '400px') {
-                width: 50%;
-            }
-
-            @include breakpoint('small') {
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            @media only screen and (min-width: 801px) {
-                width: 30%;
+            @media (min-width: '801px') {
+                width: auto;
+                z-index: 1;
+                flex-grow: 1;
+                margin: 0 0 0 1.5rem;
             }
 
             @include breakpoint('medium') {
-                width: 35%;
-                margin: 0;
-                order: 0;
-                position: relative;
-                transform: initial;
-                top: initial;
-                left: initial;
+                order: -1;
             }
-
+            
             a.header-logo__link {
-                margin: 0;
-                width: 100%;
-
-                @include breakpoint('medium') {
-                    height: 100%;
+                @media (min-width: '801px') {
                     width: 100%;
-                    display: block;
+                    display: flex;
+                    justify-content: flex-start;
                 }
-
                 div.header-logo-image-container {
-                    min-height: initial;
-                    height: 100%;
-
                     @include breakpoint('medium') {
-                        width: 100%;
-                    }
-
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                    }   
                     img.header-logo-image {
-                        max-height: initial;
-                        object-fit: contain;
-                        width: 100%;
-                        height: 100%;
-                        transition: all .3s ease-in-out;
-                        padding: 1.5rem;
-
-                        @media only screen and (min-width: 801px) {
-                            padding: 1rem;
-                        }
-
-                        @include breakpoint('medium') {
+                        @media (min-width: '801px') {
                             margin: 0;
-                            padding: 1.5rem;
-                            object-position: left;
-                            max-height: 100px;
                         }
                     }
                 }
@@ -158,9 +133,9 @@ header.header {
         div.navPages-container {
             background-color: transparent;
             position: relative;
+            width: 100%;
 
             @include breakpoint('medium') {
-                width: 100%;
                 order: 20;
                 position: absolute;
                 bottom: 0;
