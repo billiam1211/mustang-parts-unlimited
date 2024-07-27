@@ -11,6 +11,7 @@ main#main-content {
                 section.productView-details {
                     &.product-options {
                         div.productView-options {
+
                             div.add-to-cart-buttons {
 
                                 input#form-action-addToCart {
@@ -45,6 +46,46 @@ main#main-content {
                                             fill: stencilColor('color-white');
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                div.add-to-cart-wallet-buttons[data-add-to-cart-wallet-buttons] {
+                    display: none !important;
+                }
+
+                div.paymentIcons {
+                    width: 100%;
+
+                    p.title {
+                        font-size: remCalc(16px);
+                        color: stencilColor('color-greyMedium');
+                    }
+
+                    ul.iconList {
+                        margin: 0;
+                        display: flex;
+
+                        li.iconList-item {
+                            margin: 0;
+                            list-style: none;
+                            padding: 0 1rem;
+                            border: 1px solid stencilColor('color-greyLightest');
+                            border-radius: 7.5px;
+
+                            &+li {
+                                margin-left: 1.5rem;
+                            }
+
+                            i.icon {
+                                height: auto;
+                                width: auto;
+
+                                svg {
+                                    height: 50px;
+                                    width: auto;
                                 }
                             }
                         }
