@@ -28,7 +28,7 @@ export default class Global extends PageManager {
         privacyCookieNotification();
         svgInjector();
         this.search();
-        this.stickyHeaderManager();
+        // this.stickyHeaderManager();
         this.department();
         this.featuredCategories();
         this.threeColumn();

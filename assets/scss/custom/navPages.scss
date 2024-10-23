@@ -96,7 +96,7 @@ nav.navPages {
                         &::before {
 
                             opacity: 1;
-                            animation: slide-in-nav .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                            animation: slide-in-nav .25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
                             @keyframes slide-in-nav {
                                 0% {
